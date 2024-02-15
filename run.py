@@ -86,9 +86,27 @@ def welcome_message():
 
 def insert_data():
     """
-    The user enter data: gender, age-group, income bracket
+    The user enter data: gender, age-group, income bracket, likelihood of purchasing
     """
-    print("Insert Data")
+    print("Please provide the following information:\n")
+
+    # Choose gender
+    gender_choices = {'M': 'Male', 'F': 'Female'}
+    gender_input = input("Gender (M/F): ").strip().upper()
+    while gender_input not in gender_choices:
+        print("Invalid choice. Please choose either 'M' or 'F'.")
+        gender_input = input("Gender (M/F): ").strip().upper()
+    gender = gender_choices[gender_input]
+    print()
+    print()
+
+    sheet = GSPREAD_CLIENT.open('ProductSurvey')
+
+    input_data_worksheet = sheet.worksheet('Input data')
+
+    input_data_worksheet.append_row([gender])
+    print()
+    print("Data has been successfully inserted into the spreadsheet.\n")
 
 
 def extract_analyzed_data():
@@ -112,6 +130,7 @@ def main():
     while True:
         welcome_message()
         choice = input("Enter your choice: ")
+        print()
 
         if choice == '1':
             insert_data()

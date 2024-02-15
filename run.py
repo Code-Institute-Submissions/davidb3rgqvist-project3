@@ -100,14 +100,59 @@ def insert_data():
     print()
     print()
 
+    # Choose age group
+    age_group_choices = {
+        '1': '18-24', '2': '25-34', '3': '35-44',
+        '4': '45-54', '5': '55-64', '6': '65+\n'
+    }
+    print("Choose Age Group:\n")
+    for key, value in age_group_choices.items():
+        print(f"{key}: {value}")
+    age_group_input = input("Enter the number corresponding to the age group: ").strip()
+    while age_group_input not in age_group_choices:
+        print("Invalid choice. Please choose a number between 1 and 6.")
+        age_group_input = input("Enter the number corresponding to the age group: ").strip()
+    age_group = age_group_choices[age_group_input]
+    print()
+    print()
+
+     # Choose income bracket
+    income_bracket_choices = {
+        '1': '$25,000-$49,999', '2': '$50,000-$74,999', '3': '$75,000-$99,999',
+        '4': '$100,000-$149,999', '5': '$150,000 or more\n'
+    }
+    print("Choose Income Bracket:\n")
+    for key, value in income_bracket_choices.items():
+        print(f"{key}: {value}")
+    income_bracket_input = input("Enter the number corresponding to the income bracket: ").strip()
+    while income_bracket_input not in income_bracket_choices:
+        print("Invalid choice. Please choose a number between 1 and 5.")
+        income_bracket_input = input("Enter the number corresponding to the income bracket: ").strip()
+    income_bracket = income_bracket_choices[income_bracket_input]
+    print()
+    print()
+
+     # Likelihood of purchasing
+    likelihood_purchasing_choices = {
+        '1': 'None', '2': 'Slim', '3': 'Unlikely',
+        '4': 'Possible', '5': 'Very likely\n'
+    }
+    print("Likelihood to purchasing the Apple Vision Pro:\n")
+    for key, value in likelihood_purchasing_choices.items():
+        print(f"{key}: {value}")
+    likelihood_purchasing_input = input("Enter the number corresponding to the likelihood of purchasing: ").strip()
+    while likelihood_purchasing_input not in likelihood_purchasing_choices:
+        print("Invalid choice. Please choose a number between 1 and 5.")
+        likelihood_purchasing_input = input("Enter the number corresponding to the likelihood of purchasing: ").strip()
+    likelihood_purchasing = likelihood_purchasing_choices[likelihood_purchasing_input]
+
     sheet = GSPREAD_CLIENT.open('ProductSurvey')
 
     input_data_worksheet = sheet.worksheet('Input data')
 
-    input_data_worksheet.append_row([gender])
+    input_data_worksheet.append_row([gender, age_group, income_bracket, likelihood_purchasing])
     print()
     print("Data has been successfully inserted into the spreadsheet.\n")
-
 
 def extract_analyzed_data():
     """

@@ -147,12 +147,12 @@ def insert_data():
     likelihood_purchasing = likelihood_purchasing_choices[likelihood_purchasing_input]
 
     sheet = GSPREAD_CLIENT.open('ProductSurvey')
-
     input_data_worksheet = sheet.worksheet('Input data')
-
     input_data_worksheet.append_row([gender, age_group, income_bracket, likelihood_purchasing])
     print()
     print("Data has been successfully inserted into the spreadsheet.\n")
+    print("Insert Analyzed Data")
+    insert_analyzed_data(age_group, gender, income_bracket, likelihood_purchasing)
 
 
 # Analyzing results
@@ -227,6 +227,7 @@ def main():
             break
         else:
             print("Invalid choice. Please try again.")
+    
 
     insert_analyzed_data(age_group, gender, income_bracket, likelihood)
 

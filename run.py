@@ -154,6 +154,45 @@ def insert_data():
     print()
     print("Data has been successfully inserted into the spreadsheet.\n")
 
+
+# Analyzing results
+def calculate_percentage(likelihood):
+    """
+    Calculates the liklelihood of purchasing the Apple Vision Pro
+    """
+    return (likelihood / 5) * 100
+
+def categorize_likelihood(percentage):
+    """
+    Categorize the prosentage in low, medium, high
+    """
+    if percentage <= 30:
+        return 'Low'
+    elif percentage <= 70:
+        return 'Medium'
+    else:
+        return 'High'
+
+def insert_analyzed_data(age_group, gender, income_bracket, likelihood):
+    """
+    Inserts the analyzed data to the workshe
+    """
+    percentage = calculate_percentage(likelihood)
+    likelihood_category = categorize_likelihood(percentage)
+
+    # Open the spreadsheet
+    sheet = GSPREAD_CLIENT.open('ProductSurvey')
+
+    # Access the worksheet
+    analyzed_data_worksheet = sheet.worksheet('Analyzed data')
+
+    # Append the data to the worksheet
+    analyzed_data_worksheet.append_row([age_group, gender, income_bracket, likelihood, percentage, likelihood_category])
+
+    print("Analyzed data has been successfully inserted into the spreadsheet.")
+
+
+# View analyyzed data, option to store search result
 def extract_analyzed_data():
     """
     The user extract data based on search: gender, age-group, income bracket.
@@ -163,7 +202,7 @@ def extract_analyzed_data():
     """
     print("Extract Analyzed Data")
 
-
+#View last search result
 def view_stored_data():
     """
     The user can view their latest stored search result
@@ -188,6 +227,8 @@ def main():
             break
         else:
             print("Invalid choice. Please try again.")
+
+    insert_analyzed_data(age_group, gender, income_bracket, likelihood)
 
 if __name__ == "__main__":
     main()

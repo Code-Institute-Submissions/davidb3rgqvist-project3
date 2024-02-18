@@ -1,5 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
+import statistics
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -139,6 +140,8 @@ def insert_data():
     input_data_worksheet.append_row([gender, age_group, income_bracket, likelihood_purchasing])
     print("\nData has been successfully inserted into the spreadsheet.\n")
 
+
+# Extract data
 def extract_analyzed_data():
     print("Extract Analyzed Data")
     print("Choose one of the following options:")
@@ -228,13 +231,13 @@ def extract_analyzed_data():
     else:
         print("Invalid choice. Please try again.")
 
+ # Calculation of chance of purchase
 def calculate_likelihood_percentage(search_criteria):
     input_data_worksheet = SHEET.worksheet('Input data')
     analyzed_data = input_data_worksheet.get_all_records()
 
     matching_records = []
 
-    # Filter records based on search criteria
     for record in analyzed_data:
         match = True
         for key, value in search_criteria.items():
@@ -244,21 +247,64 @@ def calculate_likelihood_percentage(search_criteria):
         if match:
             matching_records.append(record)
 
-    # Calculate likelihood percentage for matching records
-    total_records = len(matching_records)
-    if total_records == 0:
-        return 0  # Return 0 if there are no matching records
-    total_likelihood = sum(record['Likelihood'] for record in matching_records)
-    likelihood_percentage = (total_likelihood / total_records) * 100
+    likelihood_values = [record['Likelihood'] for record in matching_records]
+    if not likelihood_values:
+        return 0  
+    likelihood_percentage = statistics.mean(likelihood_values)
     return likelihood_percentage
 
+
 def store_search_result(persona, likelihood_percentage):
-    # Store the persona search result in the 'Stored last search' worksheet
+    
     sheet = GSPREAD_CLIENT.open('ProductSurvey')
     stored_search_worksheet = sheet.worksheet('Stored last search')
     stored_search_worksheet.append_row([persona['Gender'], persona['Age Group'], persona['Income Bracket'], likelihood_percentage])
     print("Search result stored successfully.")
 
+
+# View stored data
+def view_stored_data():
+    print("View Stored Data")
+    print("Choose one of the following options:")
+    print("1. View Last Search Persona")
+    print("2. View All Stored Search Personas")
+    print("3. Return to Main Menu")
+
+    choice = input("Enter your choice: ")
+
+    if choice == '1':
+        view_last_search_persona()
+    elif choice == '2':
+        view_all_stored_search_personas()
+    elif choice == '3':
+        return
+    else:
+        print("Invalid choice. Please try again.")
+
+def view_last_search_persona():
+    sheet = GSPREAD_CLIENT.open('ProductSurvey')
+    stored_search_worksheet = sheet.worksheet('Stored last search')
+    last_search_persona = stored_search_worksheet.get_all_records()[-1]
+    print("\nLast Search Persona:")
+    print("Gender:", last_search_persona['Gender'])
+    print("Age Group:", last_search_persona['Age Group'])
+    print("Income Bracket:", last_search_persona['Income Bracket'])
+    print("Likelihood Percentage:", last_search_persona['Likelihood Percentage'])
+    print()
+
+def view_all_stored_search_personas():
+    sheet = GSPREAD_CLIENT.open('ProductSurvey')
+    stored_search_worksheet = sheet.worksheet('Stored last search')
+    all_stored_search_personas = stored_search_worksheet.get_all_records()
+    print("\nAll Stored Search Personas:")
+    for persona in all_stored_search_personas:
+        print("Gender:", persona['Gender'])
+        print("Age Group:", persona['Age Group'])
+        print("Income Bracket:", persona['Income Bracket'])
+        print("Likelihood Percentage:", persona['Likelihood Percentage'])
+        print()
+
+#Main function
 def main():
     while True:
         welcome_message()
@@ -270,7 +316,7 @@ def main():
         elif choice == '2':
             extract_analyzed_data()
         elif choice == '3':
-            view_stored_data()
+            view_stored_data() 
         elif choice == '4':
             print("Exiting the program...\n")
             break

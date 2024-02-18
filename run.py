@@ -28,8 +28,8 @@ def welcome_message():
 ....................................:-=====----------------==++=:...........................................
 .................................-+=---:---:--------------------=++:........................................
 ...............................==----------:------------:---------=*:.......................................
-.........................:=++*********++++==---------:--:---------=**.......................................
-..................::::-=++++********************+=---:--:---------+*+:......................................
+.........................:=++*********++++==---------:--:---------+*+:......................................
+..................::::-=++++********************+=---:--:---------**.......................................
 ..............:=-=++++**++====----------==++*********---::--------**+-......................................
 .............------------:::::::::::::::::::::--=+*****=::------+**++-......................................
 ............=:----::::::..:::::::::::::::::::::::::-+***+--:--=+***++-......................................
@@ -40,7 +40,7 @@ def welcome_message():
 ...........-=----::::::::::::::::::::::.......::::::::::=*******-......-===+++++++++++++==-.................
 ...........:=----:::::::::::::::::::::::::::::::::::::::=++=*=:..........::-==+++++++++++++=--:.............
 ............=----:::::::::::::::::::::::::::::::::::::::++=..................=++++++++++++++++++-...........
-.............=---::::::::::::::::::::::::::::::::::::::=+=.................:++++++++++++++++++++=...........
+.............=---:::::::::::::::::::::::::::::::::::::::+=.................:++++++++++++++++++++=...........
 ..............=---::::::::----:::::::::::::::::::::::--+-.................=+++++++++++++++++++++............
 ...............:---::::---:.....::::::::::::::::::::--:.................:=++++++++++++++++++++=.............
 ..................:::..............:::::::::::::::::...................-++++++++++++++++++++++:.............
@@ -53,13 +53,13 @@ def welcome_message():
 .........:##*##-...=##+--*#*-.+##=-=*#*.:*##......=##=-----.................................................
 .........=##-##+...=##=..-##+.+##:..+##::*##......=##-......................................................
 .........+#*.*#*...=##=..-##+.+##:..+##::*##......=##-......................................................
-.........*#+.+#*:..=##=..=##=.+##:..+#*::*##......=##++++-..................................................
-........:##-.=*#=..=#######*:.+#######+.:*##......=##****+..................................................
-........+##:.-*#*..=##*+=-:...+##++=-...:*##......=##-......................................................
-........*##****##:.=##=.......+##:......:*##......=##-......................................................
-.......-##*+++*##=.=##=.......+##:......:*##......=##-......................................................
-.......=##-...-##+.=##=.......+##:......:*######*:=#######*.................................................
-.......=++.....++=.-++-.......=++:......:+++++++=.-+++++++=.................................................
+.........*#+.+#*:..=##=..=##=.+##:..+#*::*##......=##-......................................................
+........:##-.=*#=..=##=..=##=.+##:..+##::*##......=##++++-..................................................
+........+##:.-*#*..=##=..=##=.+##:..+#*::*##......=##****+..................................................
+........*##****##:.=##=..=##=.+##:..+##::*##......=##-......................................................
+.......-##*+++*##=.=##=..=##=.+##:..+##::*##......=##-......................................................
+.......=##-...-##+.=##=..=##=.+##:..+##::*##......=##-......................................................
+.......=++.....++=.-++-...=++:.=++:..=++-.*++......=++=......................................................
 ............................::..............::...............................................:::............
 .......=##=....*#+.=##-..=*####*-..+##-..-*#####+..:###*..:*#=......+######*:..#######*:...+######-.........
 .......-##*...-##=.=##-.=##*::+#*:.+##-.-*#*::+##=.:####=.:*#=......+##=:-*#*-.##*-:=##*:.+##+::*#*:........
@@ -68,8 +68,8 @@ def welcome_message():
 ........=##=.:*#=..=##-..=*##+.....+##-.=##=..-*#*.:##+=#*:*#=......+##=..+##=.##*:.=##*..*##...=##-........
 ........:*#+.-**:..=##-...:+##*=...+##-.=##=..-*#*.:##+:*#=*#=......+##***##*..######*+...*##...=##-........
 .........*#*.+#*...=##-.....:*##+..+##-.=##=..-*#*.:##+.=#**#=......+##*+==:...##*-:=##*:.*##...=##-........
-.........+##:*#+...=##-.=++:..+##-.+##-.=##=..-*#*.:##+.:*###=......+##=.......##*:..*#*-.*##...=##-........
-.........=##+*#=...=##-.+##:..+##=.+##-.=##=..-*#+.:##+..=###=......+##=.......##*:..*#*-.+##...=##-........
+.........+##:*#+...=##-.=++:..+##-.+##-.=##=..-*#+.:##+..=###=......+##=.......##*:..*#*-.*##...=##-........
+.........=##+*#=...=##-.+##:..+##=.+##-.=##=..-*#+.:##+..=###+......+##=.......##*:..*#*-.*##...=##-........
 .........:#####:...=##-.-*#***##*..+##-.:*##***#*:.:##+..:*##=......+##=.......##*:..*#*-.-###**##*.........
 ..........+++++....=++-...=***+-...=++-...-+***=...:++=...=++=......+++-.......+++:..=++-...=***+-..........
 ............................................................................................................
@@ -122,22 +122,16 @@ def insert_data():
         income_bracket_input = input("Enter the number corresponding to the income bracket: ").strip()
     income_bracket = income_bracket_choices[income_bracket_input]
 
-    likelihood_purchasing_choices = {
-        '1': 'None', '2': 'Slim', '3': 'Unlikely',
-        '4': 'Possible', '5': 'Very likely'
-    }
-    print("\nLikelihood to purchasing the Apple Vision Pro:")
-    for key, value in likelihood_purchasing_choices.items():
-        print(f"{key}: {value}")
-    likelihood_purchasing_input = input("Enter the number corresponding to the likelihood of purchasing: ").strip()
-    while likelihood_purchasing_input not in likelihood_purchasing_choices:
-        print("Invalid choice. Please choose a number between 1 and 5.")
-        likelihood_purchasing_input = input("Enter the number corresponding to the likelihood of purchasing: ").strip()
-    likelihood_purchasing = likelihood_purchasing_choices[likelihood_purchasing_input]
+    print("\nEnter the likelihood of purchasing (0-10 scale):")
+    likelihood_input = input("Enter a number between 0 and 10: ").strip()
+    while not likelihood_input.isdigit() or int(likelihood_input) < 0 or int(likelihood_input) > 10:
+        print("Invalid input. Please enter a number between 0 and 10.")
+        likelihood_input = input("Enter a number between 0 and 10: ").strip()
+    likelihood = int(likelihood_input)
 
     sheet = GSPREAD_CLIENT.open('ProductSurvey')
     input_data_worksheet = sheet.worksheet('Input data')
-    input_data_worksheet.append_row([gender, age_group, income_bracket, likelihood_purchasing])
+    input_data_worksheet.append_row([gender, age_group, income_bracket, likelihood])
     print("\nData has been successfully inserted into the spreadsheet.\n")
 
 
@@ -156,7 +150,7 @@ def extract_analyzed_data():
     if choice == '1':
         gender = input("Enter the gender (M/F): ").strip().upper()
         likelihood_percentage = calculate_likelihood_percentage({'Gender': gender})
-        print(f"Likelihood of purchase for {gender} is {likelihood_percentage}%")
+        print(f"Likelihood of purchase for {gender} is {likelihood_percentage:.0f}%")
 
     elif choice == '2':
         age_group_choices = {
@@ -172,7 +166,7 @@ def extract_analyzed_data():
             age_group_input = input("Enter the number corresponding to the age group: ").strip()
         age_group = age_group_choices[age_group_input]
         likelihood_percentage = calculate_likelihood_percentage({'Age Group': age_group})
-        print(f"Likelihood of purchase for age group {age_group} is {likelihood_percentage}%")
+        print(f"Likelihood of purchase for age group {age_group} is {likelihood_percentage:.0f}%")
 
     elif choice == '3':
         income_bracket_choices = {
@@ -188,7 +182,7 @@ def extract_analyzed_data():
             income_bracket_input = input("Enter the number corresponding to the income bracket: ").strip()
         income_bracket = income_bracket_choices[income_bracket_input]
         likelihood_percentage = calculate_likelihood_percentage({'Income Bracket': income_bracket})
-        print(f"Likelihood of purchase for income bracket {income_bracket} is {likelihood_percentage}%")
+        print(f"Likelihood of purchase for income bracket {income_bracket} is {likelihood_percentage:.0f}%")
 
     elif choice == '4':
         gender = input("Enter the gender (M/F): ").strip().upper()
@@ -220,7 +214,7 @@ def extract_analyzed_data():
 
         persona = {'Gender': gender, 'Age Group': age_group, 'Income Bracket': income_bracket}
         likelihood_percentage = calculate_likelihood_percentage(persona)
-        print(f"Likelihood of purchase for persona {persona} is {likelihood_percentage}%")
+        print(f"Likelihood of purchase for persona {persona} is {likelihood_percentage:.0f}%")
         
         store_choice = input("Do you want to store this persona search result? (Y/N): ").strip().upper()
         if store_choice == 'Y':
@@ -231,28 +225,71 @@ def extract_analyzed_data():
     else:
         print("Invalid choice. Please try again.")
 
+
+def store_search_result(persona, likelihood_percentage):
+    sheet = GSPREAD_CLIENT.open('ProductSurvey')
+    stored_search_worksheet = sheet.worksheet('Stored last search')
+    stored_search_worksheet.append_row([persona['Gender'], persona['Age Group'], persona['Income Bracket'], likelihood_percentage])
+    print("Search result stored successfully.")
+
  # Calculation of chance of purchase
-def calculate_likelihood_percentage(search_criteria):
+def calculate_likelihood_statistics(search_criteria):
     input_data_worksheet = SHEET.worksheet('Input data')
     analyzed_data = input_data_worksheet.get_all_records()
 
     matching_records = []
 
+    # Filter records based on search criteria
     for record in analyzed_data:
-        match = True
-        for key, value in search_criteria.items():
-            if key in record and record[key] != value:
-                match = False
-                break
+        match = all(record.get(key) == value for key, value in search_criteria.items())
         if match:
             matching_records.append(record)
 
-    likelihood_values = [record['Likelihood'] for record in matching_records]
+    # Calculate likelihood statistics for matching records
+    likelihood_values = [record['Likelihood'] for record in matching_records if 'Likelihood' in record]
     if not likelihood_values:
-        return 0  
-    likelihood_percentage = statistics.mean(likelihood_values)
-    return likelihood_percentage
+        return {
+            'Mean': 0,
+            'Median': 0,
+            'Standard Deviation': 0
+        }  # Return 0 for all statistics if there are no matching records
 
+    # Calculate mean, median, and standard deviation
+    mean_likelihood = statistics.mean(likelihood_values)
+    median_likelihood = statistics.median(likelihood_values)
+    std_dev_likelihood = statistics.stdev(likelihood_values)
+
+    # Convert mean, median, and standard deviation to percentages
+    mean_likelihood_percent = (mean_likelihood / 10) * 100
+    median_likelihood_percent = (median_likelihood / 10) * 100
+    std_dev_likelihood_percent = (std_dev_likelihood / 10) * 100
+
+    return {
+        'Mean': mean_likelihood_percent,
+        'Median': median_likelihood_percent,
+        'Standard Deviation': std_dev_likelihood_percent
+    }
+
+def calculate_likelihood_percentage(search_criteria):
+    input_data_worksheet = SHEET.worksheet('Input data')
+    analyzed_data = input_data_worksheet.get_all_records()
+
+    total_records = len(analyzed_data)
+    matching_records = 0
+
+    # Count matching records based on search criteria
+    for record in analyzed_data:
+        match = all(record.get(key) == value for key, value in search_criteria.items())
+        if match:
+            matching_records += 1
+
+    # Calculate likelihood percentage
+    if total_records > 0:
+        likelihood_percentage = (matching_records / total_records) * 100
+    else:
+        likelihood_percentage = 0
+
+    return round(likelihood_percentage, -1)  # Round the percentage to the nearest 10
 
 def store_search_result(persona, likelihood_percentage):
     
@@ -284,24 +321,27 @@ def view_stored_data():
 def view_last_search_persona():
     sheet = GSPREAD_CLIENT.open('ProductSurvey')
     stored_search_worksheet = sheet.worksheet('Stored last search')
-    last_search_persona = stored_search_worksheet.get_all_records()[-1]
+    last_search_persona = stored_search_worksheet.get_all_records()[-1]  # Get the last stored search
+
     print("\nLast Search Persona:")
-    print("Gender:", last_search_persona['Gender'])
-    print("Age Group:", last_search_persona['Age Group'])
-    print("Income Bracket:", last_search_persona['Income Bracket'])
-    print("Likelihood Percentage:", last_search_persona['Likelihood Percentage'])
-    print()
+    for key, value in last_search_persona.items():
+        print(f"{key}: {value}")
+
+    # Check if 'Likelihood Percentage' exists in the last search persona
+    if 'Likelihood Percentage' in last_search_persona:
+        print("Likelihood Percentage:", last_search_persona['Likelihood Percentage'])
+    else:
+        print("Likelihood Percentage: Data not available")
 
 def view_all_stored_search_personas():
     sheet = GSPREAD_CLIENT.open('ProductSurvey')
     stored_search_worksheet = sheet.worksheet('Stored last search')
     all_stored_search_personas = stored_search_worksheet.get_all_records()
+
     print("\nAll Stored Search Personas:")
     for persona in all_stored_search_personas:
-        print("Gender:", persona['Gender'])
-        print("Age Group:", persona['Age Group'])
-        print("Income Bracket:", persona['Income Bracket'])
-        print("Likelihood Percentage:", persona['Likelihood Percentage'])
+        for key, value in persona.items():
+            print(f"{key}: {value}")
         print()
 
 #Main function

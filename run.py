@@ -161,7 +161,7 @@ def extract_analyzed_data():
         gender = 'Male' if gender_input == 'M' else 'Female'
         likelihood_percentage = calculate_likelihood_percentage({'Gender': gender})
         if likelihood_percentage is not None:
-            print(f"Likelihood of purchase for {gender} is {likelihood_percentage['Male']:.2f}%") 
+            print(f"Likelihood of purchase for {gender} is {likelihood_percentage[gender]:.2f}%")
         else:
             print("No data found for the selected gender.")
 
@@ -180,7 +180,7 @@ def extract_analyzed_data():
             age_group_input = input("Enter the number corresponding to the age group: ").strip()
         age_group = age_group_choices[age_group_input]
         likelihood_percentage = calculate_likelihood_percentage({'Age Group': age_group})
-        print(f"Likelihood of purchase for age group {age_group} is {likelihood_percentage:.2f}%")
+        print(f"Likelihood of purchase for age group {age_group} is {likelihood_percentage[age_group]:.2f}%")
 
 # Extract data: Income bracket
     elif choice == '3':
@@ -197,7 +197,7 @@ def extract_analyzed_data():
             income_bracket_input = input("Enter the number corresponding to the income bracket: ").strip()
         income_bracket = income_bracket_choices[income_bracket_input]
         likelihood_percentage = calculate_likelihood_percentage({'Income Bracket': income_bracket})
-        print(f"Likelihood of purchase for income bracket {income_bracket} is {likelihood_percentage:.2f}%")
+        print(f"Likelihood of purchase for income bracket {income_bracket} is {likelihood_percentage[income_bracket]:.2f}%") 
 
 # Extract data: Create persona
     if choice == '4':
@@ -299,6 +299,33 @@ def calculate_likelihood_statistics(search_criteria):
         'Standard Deviation': std_dev_likelihood_percent
     }
 
+def calculate_likelihood_age_group(age_group):
+    input_data_worksheet = SHEET.worksheet('Input data')
+    analyzed_data = input_data_worksheet.get_all_records()
+
+    likelihood_values = [record['Likelihood'] for record in analyzed_data if record.get('Age Group') == age_group]
+
+    if not likelihood_values:
+        return {
+            'Mean': 0,
+            'Median': 0,
+            'Standard Deviation': 0
+        }
+
+    mean_likelihood = statistics.mean(likelihood_values)
+    median_likelihood = statistics.median(likelihood_values)
+    std_dev_likelihood = statistics.stdev(likelihood_values)
+
+    mean_likelihood_percent = (mean_likelihood / 10) * 100
+    median_likelihood_percent = (median_likelihood / 10) * 100
+    std_dev_likelihood_percent = (std_dev_likelihood / 10) * 100
+
+    return {
+        'Mean': mean_likelihood_percent,
+        'Median': median_likelihood_percent,
+        'Standard Deviation': std_dev_likelihood_percent
+    }
+
 # Calculate likelihood in percentage
 def calculate_likelihood_percentage(search_criteria):
     input_data_worksheet = SHEET.worksheet('Input data')
@@ -383,6 +410,9 @@ def view_all_stored_search_personas():
 
 #Main function
 def main():
+    age_group_statistics = calculate_likelihood_age_group('25-34')
+    print(age_group_statistics)
+    
     while True:
         welcome_message()
         choice = input("Enter your choice: ")

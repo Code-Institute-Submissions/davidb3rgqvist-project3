@@ -13,6 +13,8 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('ProductSurvey')
 
+
+# Welcome image and text
 def welcome_message():
     print()
     print("Apple Vision Pro Buying Survey!")
@@ -77,6 +79,7 @@ def welcome_message():
 ............................................................................................................
 ............................................................................................................
     """)
+# Menu
     print()
     print("This survey aims to gather insights into the likelihood of purchasing the Apple Vision Pro product.")
     print()
@@ -85,6 +88,8 @@ def welcome_message():
     print("3. View Stored Data")
     print("4. Exit\n")
 
+
+# Input data
 def insert_data():
     print("Insert Data")
     print("Please provide the following information:\n")
@@ -135,7 +140,7 @@ def insert_data():
     print("\nData has been successfully inserted into the spreadsheet.\n")
 
 
-# Extract data
+# Extract data menu
 def extract_analyzed_data():
     print("Extract Analyzed Data")
     print("Choose one of the following options:")
@@ -147,11 +152,20 @@ def extract_analyzed_data():
 
     choice = input("Enter your choice: ")
 
+# Extract data: Gender
     if choice == '1':
-        gender = input("Enter the gender (M/F): ").strip().upper()
+        gender_input = input("Enter the gender (M/F): ").strip().upper()
+        while gender_input not in ['M', 'F']:
+            print("Invalid choice. Please choose either 'M' or 'F'.")
+            gender_input = input("Enter the gender (M/F): ").strip().upper()
+        gender = 'Male' if gender_input == 'M' else 'Female'
         likelihood_percentage = calculate_likelihood_percentage({'Gender': gender})
-        print(f"Likelihood of purchase for {gender} is {likelihood_percentage:.0f}%")
+        if likelihood_percentage is not None:
+            print(f"Likelihood of purchase for {gender} is {likelihood_percentage['Male']:.2f}%") 
+        else:
+            print("No data found for the selected gender.")
 
+# Extract data: Age group
     elif choice == '2':
         age_group_choices = {
             '1': '18-24', '2': '25-34', '3': '35-44',
@@ -166,8 +180,9 @@ def extract_analyzed_data():
             age_group_input = input("Enter the number corresponding to the age group: ").strip()
         age_group = age_group_choices[age_group_input]
         likelihood_percentage = calculate_likelihood_percentage({'Age Group': age_group})
-        print(f"Likelihood of purchase for age group {age_group} is {likelihood_percentage:.0f}%")
+        print(f"Likelihood of purchase for age group {age_group} is {likelihood_percentage:.2f}%")
 
+# Extract data: Income bracket
     elif choice == '3':
         income_bracket_choices = {
             '1': '$25,000-$49,999', '2': '$50,000-$74,999', '3': '$75,000-$99,999',
@@ -182,10 +197,15 @@ def extract_analyzed_data():
             income_bracket_input = input("Enter the number corresponding to the income bracket: ").strip()
         income_bracket = income_bracket_choices[income_bracket_input]
         likelihood_percentage = calculate_likelihood_percentage({'Income Bracket': income_bracket})
-        print(f"Likelihood of purchase for income bracket {income_bracket} is {likelihood_percentage:.0f}%")
+        print(f"Likelihood of purchase for income bracket {income_bracket} is {likelihood_percentage:.2f}%")
 
-    elif choice == '4':
-        gender = input("Enter the gender (M/F): ").strip().upper()
+# Extract data: Create persona
+    if choice == '4':
+        gender_input = input("Enter the gender (M/F): ").strip().upper()
+        while gender_input not in ['M', 'F']:
+            print("Invalid choice. Please choose either 'M' or 'F'.")
+            gender_input = input("Enter the gender (M/F): ").strip().upper()
+
         age_group_choices = {
             '1': '18-24', '2': '25-34', '3': '35-44',
             '4': '45-54', '5': '55-64', '6': '65+'
@@ -212,54 +232,63 @@ def extract_analyzed_data():
             income_bracket_input = input("Enter the number corresponding to the income bracket: ").strip()
         income_bracket = income_bracket_choices[income_bracket_input]
 
-        persona = {'Gender': gender, 'Age Group': age_group, 'Income Bracket': income_bracket}
+        persona = {'Gender': gender_input, 'Age Group': age_group, 'Income Bracket': income_bracket}
         likelihood_percentage = calculate_likelihood_percentage(persona)
-        print(f"Likelihood of purchase for persona {persona} is {likelihood_percentage:.0f}%")
-        
-        store_choice = input("Do you want to store this persona search result? (Y/N): ").strip().upper()
-        if store_choice == 'Y':
-            store_search_result(persona, likelihood_percentage)
+        if likelihood_percentage is not None:
+            print(f"Likelihood of purchase for persona {persona} is {likelihood_percentage[gender_input]:.2f}%") 
+        else:
+            print("No data found for the selected persona.")
 
+# Extract data: Back to main menu
     elif choice == '5':
         return
     else:
         print("Invalid choice. Please try again.")
 
 
+# Calculation gender for statistics 
+def calculate_total_gender_records(gender):
+    input_data_worksheet = SHEET.worksheet('Input data')
+    analyzed_data = input_data_worksheet.get_all_records()
+
+    total_gender_records = sum(1 for record in analyzed_data if record['Gender'] == gender)
+    
+    return total_gender_records
+
+# Store search result
 def store_search_result(persona, likelihood_percentage):
     sheet = GSPREAD_CLIENT.open('ProductSurvey')
     stored_search_worksheet = sheet.worksheet('Stored last search')
     stored_search_worksheet.append_row([persona['Gender'], persona['Age Group'], persona['Income Bracket'], likelihood_percentage])
     print("Search result stored successfully.")
 
- # Calculation of chance of purchase
+
+# Calculation of chance of purchase
 def calculate_likelihood_statistics(search_criteria):
     input_data_worksheet = SHEET.worksheet('Input data')
     analyzed_data = input_data_worksheet.get_all_records()
 
     matching_records = []
 
-    # Filter records based on search criteria
+
     for record in analyzed_data:
         match = all(record.get(key) == value for key, value in search_criteria.items())
         if match:
             matching_records.append(record)
 
-    # Calculate likelihood statistics for matching records
+  
     likelihood_values = [record['Likelihood'] for record in matching_records if 'Likelihood' in record]
     if not likelihood_values:
         return {
             'Mean': 0,
             'Median': 0,
             'Standard Deviation': 0
-        }  # Return 0 for all statistics if there are no matching records
+        } 
 
-    # Calculate mean, median, and standard deviation
     mean_likelihood = statistics.mean(likelihood_values)
     median_likelihood = statistics.median(likelihood_values)
     std_dev_likelihood = statistics.stdev(likelihood_values)
 
-    # Convert mean, median, and standard deviation to percentages
     mean_likelihood_percent = (mean_likelihood / 10) * 100
     median_likelihood_percent = (median_likelihood / 10) * 100
     std_dev_likelihood_percent = (std_dev_likelihood / 10) * 100
@@ -270,36 +299,43 @@ def calculate_likelihood_statistics(search_criteria):
         'Standard Deviation': std_dev_likelihood_percent
     }
 
+# Calculate likelihood in percentage
 def calculate_likelihood_percentage(search_criteria):
     input_data_worksheet = SHEET.worksheet('Input data')
     analyzed_data = input_data_worksheet.get_all_records()
 
-    total_records = len(analyzed_data)
-    matching_records = 0
+    total_male_records = 0
+    total_female_records = 0
+    total_male_likelihood_sum = 0
+    total_female_likelihood_sum = 0
 
-    # Count matching records based on search criteria
     for record in analyzed_data:
-        match = all(record.get(key) == value for key, value in search_criteria.items())
-        if match:
-            matching_records += 1
+        if 'Gender' in record and record['Gender'] in ['Male', 'Female']:
+            if record['Gender'] == 'Male':
+                total_male_records += 1
+                total_male_likelihood_sum += record.get('Likelihood', 0)  
+            else:
+                total_female_records += 1
+                total_female_likelihood_sum += record.get('Likelihood', 0) 
 
-    # Calculate likelihood percentage
-    if total_records > 0:
-        likelihood_percentage = (matching_records / total_records) * 100
-    else:
-        likelihood_percentage = 0
+    male_likelihood_percentage = (total_male_likelihood_sum / (total_male_records * 10)) * 100 if total_male_records > 0 else 0
+    female_likelihood_percentage = (total_female_likelihood_sum / (total_female_records * 10)) * 100 if total_female_records > 0 else 0
 
-    return round(likelihood_percentage, -1)  # Round the percentage to the nearest 10
+    return {'Male': male_likelihood_percentage, 'Female': female_likelihood_percentage}
+
 
 def store_search_result(persona, likelihood_percentage):
     
+    gender = 'Male' if persona['Gender'] == 'M' else 'Female'
+    likelihood_percentage_formatted = f"{likelihood_percentage:.2f}%"
+
     sheet = GSPREAD_CLIENT.open('ProductSurvey')
     stored_search_worksheet = sheet.worksheet('Stored last search')
-    stored_search_worksheet.append_row([persona['Gender'], persona['Age Group'], persona['Income Bracket'], likelihood_percentage])
+    stored_search_worksheet.append_row([gender, persona['Age Group'], persona['Income Bracket'], likelihood_percentage_formatted])
     print("Search result stored successfully.")
 
 
-# View stored data
+# View stored data menu
 def view_stored_data():
     print("View Stored Data")
     print("Choose one of the following options:")
@@ -318,21 +354,22 @@ def view_stored_data():
     else:
         print("Invalid choice. Please try again.")
 
+# View last persona
 def view_last_search_persona():
     sheet = GSPREAD_CLIENT.open('ProductSurvey')
     stored_search_worksheet = sheet.worksheet('Stored last search')
-    last_search_persona = stored_search_worksheet.get_all_records()[-1]  # Get the last stored search
+    last_search_persona = stored_search_worksheet.get_all_records()[-1] 
 
     print("\nLast Search Persona:")
     for key, value in last_search_persona.items():
         print(f"{key}: {value}")
 
-    # Check if 'Likelihood Percentage' exists in the last search persona
     if 'Likelihood Percentage' in last_search_persona:
         print("Likelihood Percentage:", last_search_persona['Likelihood Percentage'])
     else:
         print("Likelihood Percentage: Data not available")
 
+# View all personas
 def view_all_stored_search_personas():
     sheet = GSPREAD_CLIENT.open('ProductSurvey')
     stored_search_worksheet = sheet.worksheet('Stored last search')

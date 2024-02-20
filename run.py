@@ -18,67 +18,7 @@ SHEET = GSPREAD_CLIENT.open('ProductSurvey')
 def welcome_message():
     print()
     print("Apple Vision Pro Buying Survey!")
-    print("""
-............................................................................................................
-............................................................................................................
-............................................................................................................
-............................................................................................................
-............................................................................................................
-............................................................................................................
-............................................................................................................
-.............................................:----===----:..................................................
-....................................:-=====----------------==++=:...........................................
-.................................-+=---:---:--------------------=++:........................................
-...............................==----------:------------:---------=*:.......................................
-.........................:=++*********++++==---------:--:---------+*+:......................................
-..................::::-=++++********************+=---:--:---------**.......................................
-..............:=-=++++**++====----------==++*********---::--------**+-......................................
-.............------------:::::::::::::::::::::--=+*****=::------+**++-......................................
-............=:----::::::..:::::::::::::::::::::::::-+***+--:--=+***++-......................................
-...........-=::..........:::::::::..........:::::-:::-+*++-+*****+++++:.....................................
-...........-=--:::::::...:::::::::...........::::::-::-+**********+++.==...::::::...........................
-...........------:::::::::::::::::............:::::::.:-*********+++-..:=++++++++++++=-:....................
-...........------:::::::::::::::::.::.........::::::::::+********-.....-++=--:::::--===+=...................
-...........-=----::::::::::::::::::::::.......::::::::::=*******-......-===+++++++++++++==-.................
-...........:=----:::::::::::::::::::::::::::::::::::::::=++=*=:..........::-==+++++++++++++=--:.............
-............=----:::::::::::::::::::::::::::::::::::::::++=..................=++++++++++++++++++-...........
-.............=---:::::::::::::::::::::::::::::::::::::::+=.................:++++++++++++++++++++=...........
-..............=---::::::::----:::::::::::::::::::::::--+-.................=+++++++++++++++++++++............
-...............:---::::---:.....::::::::::::::::::::--:.................:=++++++++++++++++++++=.............
-..................:::..............:::::::::::::::::...................-++++++++++++++++++++++:.............
-.......................................:::::::::......................=+*****************++++:..............
-......................................................................-++++++++++++++++++*++:...............
-........................................................................:--===+++++++++++++-................
-......................................................................................::::..................
-............................................................................................................
-..........*####:...=######*=..+#####**:.:*##......=#######*.................................................
-.........:##*##-...=##+--*#*-.+##=-=*#*.:*##......=##=-----.................................................
-.........=##-##+...=##=..-##+.+##:..+##::*##......=##-......................................................
-.........+#*.*#*...=##=..-##+.+##:..+##::*##......=##-......................................................
-.........*#+.+#*:..=##=..=##=.+##:..+#*::*##......=##-......................................................
-........:##-.=*#=..=##=..=##=.+##:..+##::*##......=##++++-..................................................
-........+##:.-*#*..=##=..=##=.+##:..+#*::*##......=##****+..................................................
-........*##****##:.=##=..=##=.+##:..+##::*##......=##-......................................................
-.......-##*+++*##=.=##=..=##=.+##:..+##::*##......=##-......................................................
-.......=##-...-##+.=##=..=##=.+##:..+##::*##......=##-......................................................
-.......=++.....++=.-++-...=++:.=++:..=++-.*++......=++=......................................................
-............................::..............::...............................................:::............
-.......=##=....*#+.=##-..=*####*-..+##-..-*#####+..:###*..:*#=......+######*:..#######*:...+######-.........
-.......-##*...-##=.=##-.=##*::+#*:.+##-.-*#*::+##=.:####=.:*#=......+##=:-*#*-.##*-:=##*:.+##+::*#*:........
-.......:###:..+##:.=##-.+##=..=**-.+##-.=##=..-*#*.:####*::*#=......+##=..+##=.##*:..*#*-.*##...=##-........
-........*##-..*#*..=##-.-##*:......+##-.=##=..-*#*.:##***=:*#=......+##=..+##=.##*:..*#*-.*##...=##-........
-........=##=.:*#=..=##-..=*##+.....+##-.=##=..-*#*.:##+=#*:*#=......+##=..+##=.##*:.=##*..*##...=##-........
-........:*#+.-**:..=##-...:+##*=...+##-.=##=..-*#*.:##+:*#=*#=......+##***##*..######*+...*##...=##-........
-.........*#*.+#*...=##-.....:*##+..+##-.=##=..-*#*.:##+.=#**#=......+##*+==:...##*-:=##*:.*##...=##-........
-.........+##:*#+...=##-.=++:..+##-.+##-.=##=..-*#+.:##+..=###=......+##=.......##*:..*#*-.*##...=##-........
-.........=##+*#=...=##-.+##:..+##=.+##-.=##=..-*#+.:##+..=###+......+##=.......##*:..*#*-.*##...=##-........
-.........:#####:...=##-.-*#***##*..+##-.:*##***#*:.:##+..:*##=......+##=.......##*:..*#*-.-###**##*.........
-..........+++++....=++-...=***+-...=++-...-+***=...:++=...=++=......+++-.......+++:..=++-...=***+-..........
-............................................................................................................
-............................................................................................................
-............................................................................................................
-............................................................................................................
-    """)
+    print("""""")
 # Menu
     print()
     print("This survey aims to gather insights into the likelihood of purchasing the Apple Vision Pro product.")
@@ -152,20 +92,18 @@ def extract_analyzed_data():
 
     choice = input("Enter your choice: ")
 
-# Extract data: Gender
     if choice == '1':
         gender_input = input("Enter the gender (M/F): ").strip().upper()
         while gender_input not in ['M', 'F']:
             print("Invalid choice. Please choose either 'M' or 'F'.")
             gender_input = input("Enter the gender (M/F): ").strip().upper()
         gender = 'Male' if gender_input == 'M' else 'Female'
-        likelihood_percentage = calculate_likelihood_percentage({'Gender': gender})
-        if likelihood_percentage is not None:
-            print(f"Likelihood of purchase for {gender} is {likelihood_percentage[gender]:.2f}%")
+        likelihood_gender = calculate_likelihood_gender({})[gender]  # Fetch likelihood for the specific gender
+        if likelihood_gender is not None:
+            print(f"Likelihood of purchase for {gender} is {likelihood_gender:.2f}%")
         else:
             print("No data found for the selected gender.")
 
-# Extract data: Age group
     elif choice == '2':
         age_group_choices = {
             '1': '18-24', '2': '25-34', '3': '35-44',
@@ -179,11 +117,10 @@ def extract_analyzed_data():
             print("Invalid choice. Please choose a number between 1 and 6.")
             age_group_input = input("Enter the number corresponding to the age group: ").strip()
         age_group = age_group_choices[age_group_input]
-        likelihood_percentage = calculate_likelihood_percentage({'Age Group': age_group})
-        print(f"Likelihood of purchase for age group {age_group} is {likelihood_percentage[age_group]:.2f}%")
+        likelihood_age_group = calculate_likelihood_age_group(age_group)  # Fetch mean likelihood for the age group
+        print(f"Likelihood of purchase for age group {age_group} is {likelihood_age_group:.2f}%")
 
-# Extract data: Income bracket
-    elif choice == '3':
+    if choice == '3':
         income_bracket_choices = {
             '1': '$25,000-$49,999', '2': '$50,000-$74,999', '3': '$75,000-$99,999',
             '4': '$100,000-$149,999', '5': '$150,000 or more'
@@ -196,15 +133,17 @@ def extract_analyzed_data():
             print("Invalid choice. Please choose a number between 1 and 5.")
             income_bracket_input = input("Enter the number corresponding to the income bracket: ").strip()
         income_bracket = income_bracket_choices[income_bracket_input]
-        likelihood_percentage = calculate_likelihood_percentage({'Income Bracket': income_bracket})
-        print(f"Likelihood of purchase for income bracket {income_bracket} is {likelihood_percentage[income_bracket]:.2f}%") 
 
-# Extract data: Create persona
-    if choice == '4':
+        income_bracket_statistics = calculate_likelihood_income_bracket(income_bracket)
+        print(f"Likelihood statistics for income bracket {income_bracket}:")
+        print(f"Likelihood of purchase for income bracket: {income_bracket_statistics:.2f}%")
+
+    elif choice == '4':
         gender_input = input("Enter the gender (M/F): ").strip().upper()
         while gender_input not in ['M', 'F']:
             print("Invalid choice. Please choose either 'M' or 'F'.")
             gender_input = input("Enter the gender (M/F): ").strip().upper()
+        gender = 'Male' if gender_input == 'M' else 'Female'  # Convert "M" to "Male" and "F" to "Female"
 
         age_group_choices = {
             '1': '18-24', '2': '25-34', '3': '35-44',
@@ -232,14 +171,14 @@ def extract_analyzed_data():
             income_bracket_input = input("Enter the number corresponding to the income bracket: ").strip()
         income_bracket = income_bracket_choices[income_bracket_input]
 
-        persona = {'Gender': gender_input, 'Age Group': age_group, 'Income Bracket': income_bracket}
-        likelihood_percentage = calculate_likelihood_percentage(persona)
+        persona = {'Gender': gender, 'Age Group': age_group, 'Income Bracket': income_bracket}
+        likelihood_percentage = calculate_likelihood_persona(persona)
         if likelihood_percentage is not None:
-            print(f"Likelihood of purchase for persona {persona} is {likelihood_percentage[gender_input]:.2f}%") 
+            formatted_persona = ", ".join([f"{key}: {value}" for key, value in persona.items()])
+            print(f"Likelihood of purchase for persona {formatted_persona} is {likelihood_percentage:.2f}%")
         else:
             print("No data found for the selected persona.")
 
-# Extract data: Back to main menu
     elif choice == '5':
         return
     else:
@@ -250,6 +189,8 @@ def extract_analyzed_data():
 def calculate_total_gender_records(gender):
     input_data_worksheet = SHEET.worksheet('Input data')
     analyzed_data = input_data_worksheet.get_all_records()
+    print("Analyzing data inside the calculation function:")
+    print(analyzed_data)  # Print the data being processed
 
     total_gender_records = sum(1 for record in analyzed_data if record['Gender'] == gender)
     
@@ -263,73 +204,12 @@ def store_search_result(persona, likelihood_percentage):
     print("Search result stored successfully.")
 
 
-# Calculation of chance of purchase
-def calculate_likelihood_statistics(search_criteria):
-    input_data_worksheet = SHEET.worksheet('Input data')
-    analyzed_data = input_data_worksheet.get_all_records()
-
-    matching_records = []
-
-
-    for record in analyzed_data:
-        match = all(record.get(key) == value for key, value in search_criteria.items())
-        if match:
-            matching_records.append(record)
-
-  
-    likelihood_values = [record['Likelihood'] for record in matching_records if 'Likelihood' in record]
-    if not likelihood_values:
-        return {
-            'Mean': 0,
-            'Median': 0,
-            'Standard Deviation': 0
-        } 
-
-    mean_likelihood = statistics.mean(likelihood_values)
-    median_likelihood = statistics.median(likelihood_values)
-    std_dev_likelihood = statistics.stdev(likelihood_values)
-
-    mean_likelihood_percent = (mean_likelihood / 10) * 100
-    median_likelihood_percent = (median_likelihood / 10) * 100
-    std_dev_likelihood_percent = (std_dev_likelihood / 10) * 100
-
-    return {
-        'Mean': mean_likelihood_percent,
-        'Median': median_likelihood_percent,
-        'Standard Deviation': std_dev_likelihood_percent
-    }
-
-def calculate_likelihood_age_group(age_group):
-    input_data_worksheet = SHEET.worksheet('Input data')
-    analyzed_data = input_data_worksheet.get_all_records()
-
-    likelihood_values = [record['Likelihood'] for record in analyzed_data if record.get('Age Group') == age_group]
-
-    if not likelihood_values:
-        return {
-            'Mean': 0,
-            'Median': 0,
-            'Standard Deviation': 0
-        }
-
-    mean_likelihood = statistics.mean(likelihood_values)
-    median_likelihood = statistics.median(likelihood_values)
-    std_dev_likelihood = statistics.stdev(likelihood_values)
-
-    mean_likelihood_percent = (mean_likelihood / 10) * 100
-    median_likelihood_percent = (median_likelihood / 10) * 100
-    std_dev_likelihood_percent = (std_dev_likelihood / 10) * 100
-
-    return {
-        'Mean': mean_likelihood_percent,
-        'Median': median_likelihood_percent,
-        'Standard Deviation': std_dev_likelihood_percent
-    }
-
 # Calculate likelihood in percentage
-def calculate_likelihood_percentage(search_criteria):
+def calculate_likelihood_gender(search_criteria):
     input_data_worksheet = SHEET.worksheet('Input data')
     analyzed_data = input_data_worksheet.get_all_records()
+    print("Analyzing data inside the calculation function:")
+    print(analyzed_data)  # Print the data being processed
 
     total_male_records = 0
     total_female_records = 0
@@ -350,16 +230,54 @@ def calculate_likelihood_percentage(search_criteria):
 
     return {'Male': male_likelihood_percentage, 'Female': female_likelihood_percentage}
 
+# Calculate age group
+def calculate_likelihood_age_group(age_group):
+    input_data_worksheet = SHEET.worksheet('Input data')
+    analyzed_data = input_data_worksheet.get_all_records()
 
-def store_search_result(persona, likelihood_percentage):
+    likelihood_values = [record.get('Likelihood', 0) for record in analyzed_data if record.get('Age Group') == age_group]
+
+    if not likelihood_values:
+        return 0
+
+    mean_likelihood = statistics.mean(likelihood_values)
+    mean_likelihood_percent = (mean_likelihood / 10) * 100
+
+    return mean_likelihood_percent
     
-    gender = 'Male' if persona['Gender'] == 'M' else 'Female'
-    likelihood_percentage_formatted = f"{likelihood_percentage:.2f}%"
 
-    sheet = GSPREAD_CLIENT.open('ProductSurvey')
-    stored_search_worksheet = sheet.worksheet('Stored last search')
-    stored_search_worksheet.append_row([gender, persona['Age Group'], persona['Income Bracket'], likelihood_percentage_formatted])
-    print("Search result stored successfully.")
+# Calculate income bracket
+def calculate_likelihood_income_bracket(income_bracket):
+    input_data_worksheet = SHEET.worksheet('Input data')
+    analyzed_data = input_data_worksheet.get_all_records()
+
+    likelihood_values = [record.get('Likelihood', 0) for record in analyzed_data if record.get('Income Bracket') == income_bracket]
+
+    if not likelihood_values:
+        return 0
+
+    mean_likelihood = statistics.mean(likelihood_values)
+    mean_likelihood_percent = (mean_likelihood / 10) * 100
+
+    return mean_likelihood_percent
+
+# Calculate Persona
+def calculate_likelihood_persona(persona):
+    input_data_worksheet = SHEET.worksheet('Input data')
+    analyzed_data = input_data_worksheet.get_all_records()
+    
+    matching_records = [record for record in analyzed_data if all(key != 'Likelihood' and record.get(key) == value for key, value in persona.items())]
+
+    if not matching_records:
+        print(f"No data found for the persona: {persona}")
+        return None  # Return None if no data is found for the persona
+
+    total_records = len(matching_records)
+    total_likelihood = sum(record.get('Likelihood', 0) for record in matching_records)
+
+    likelihood_percentage = (total_likelihood / (total_records * 10)) * 100
+
+    return likelihood_percentage
 
 
 # View stored data menu
@@ -410,9 +328,6 @@ def view_all_stored_search_personas():
 
 #Main function
 def main():
-    age_group_statistics = calculate_likelihood_age_group('25-34')
-    print(age_group_statistics)
-    
     while True:
         welcome_message()
         choice = input("Enter your choice: ")

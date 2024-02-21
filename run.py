@@ -35,7 +35,7 @@ def welcome_message():
     a menu with options to insert data, extract analyzed data, view stored data, or exit the program.
     """
     print()
-    print("Apple Vision Pro Buying Survey!")
+    print("Apple Vision Pro Product Survey!")
     print("""
                                                                            
                                                                            

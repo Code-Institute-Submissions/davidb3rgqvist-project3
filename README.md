@@ -1,179 +1,160 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Apple Vision Pro Product Survey
 
-Welcome,
+The Apple Vision Pro Product Survey is a Python application designed to gather insights into the likelihood of purchasing the Apple Vision Pro product. It allows users to input demographic data such as gender, age group, income bracket, and likelihood of purchase on a 0-10 scale. The application then analyzes this data and provides various options to extract and view analyzed results based on different criteria.
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+- [Deployed page](https://apple-vision-pro-survey-46239bd7970b.herokuapp.com/)
+- [Data spreadsheet](https://docs.google.com/spreadsheets/d/1smBjfvvnpdDnmvxKwiwAl2V6hCMFwyGIR9vtk1-deY0/edit?usp=sharing)
 
-## Reminders
-
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
-
-## Creating the Heroku app
-
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
-
-1. `heroku/python`
-2. `heroku/nodejs`
-
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
-
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
-
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
----
-
-Happy coding!
-
-
-https://www.asciiart.eu/image-to-ascii
-
-WordStream: French Edition is an engaging language learning game designed to help you master essential French vocabulary effortlessly. Immerse yourself in the game, learn the top 1000 words, and watch your language skills flow with ease.
-
-## Deployed page
-The deployed Apple Vision Pro Product Survey app can be accessed using the following URL: [Apple Vision Pro Product Survey](https://apple-vision-pro-survey-46239bd7970b.herokuapp.com/)
-
-## Responsive Test
-For a quick overview of responsiveness, we utilized [Am I Responsive](https://ui.dev/amiresponsive).
+![Responsive test](docs/responsive-test.png)
 
 ## Table of Contents
-1. [UX - Five Planes](#ux---five-planes)
-2. [Future Features](#future-features)
-3. [Technology Used](#technology-used)
-4. [Testing](#testing)
-5. [Development](#development)
-6. [Deployment](#deployment)
-7. [Credits](#credits)
+  - [UX - Five Planes](#ux---five-planes)
+  - [Future Features](#future-features)
+  - [Technology Used](#technology-used)
+  - [Testing](#testing)
+  - [Development](#development)
+  - [Deployment](#deployment)
+  - [Credits](#credits)
 
 ## UX - Five Planes
-Strategy:
+
+### Strategy:
+
 WordStream is a language learning game designed to help users master the 1000 most common French words for effective language acquisition. The game focuses on providing an interactive and engaging learning experience, aiming to kickstart users' ability to speak French.
 
-User Goals:
-Learn Core Vocabulary: Users aim to master the 1000 most common French words to kickstart their ability to speak the language.
-Effective Learning: Users seek an efficient and effective learning experience, acquiring words gradually through practice.
-Interactive Learning: Users are looking for an interactive and engaging method to enhance their language skills.
+#### User Goals:
 
-Owner Goals:
-User Retention: The primary goal is to keep users engaged and motivated to continue their language learning journey.
-Educational Impact: The owner aims to contribute positively to users' language acquisition.
-User Satisfaction: Ensuring that users find the game enjoyable and beneficial for language learning
-Scope:
-Learning Mechanism: The primary function is to present users with French-English word pairs for learning.
-Feedback System: Provide instant feedback on correct and incorrect answers, reinforcing learning.
-Replayability: Allow users to play the game repeatedly to reinforce vocabulary and improve retention.
-Shuffling Words: Implement a mechanism to shuffle words on page reload, providing a fresh learning experience.
-Screen shots of the pages with comments
+- **Learn Core Vocabulary:** Users aim to master the 1000 most common French words to kickstart their ability to speak the language.
+- **Effective Learning:** Users seek an efficient and effective learning experience, acquiring words gradually through practice.
+- **Interactive Learning:** Users are looking for an interactive and engaging method to enhance their language skills.
 
-Structure:
-Flashcard Interface: Use a flashcard format to present words, focusing on one word at a time for effective learning.
-User Input: Incorporate a text input for users to type their answers.
-Feedback Display: Display a visual cue (e.g., green flash) for correct answers and provide the correct word on mistakes.
-Audio Feedback: Include the option for users to listen to the correct pronunciation.
-Skeleton:
-Start Button: Initiate the game with a "Start Game" button.
-User Input Field: Allow users to type their answers.
-Submit Button: Trigger the evaluation of user input.
-Correct/Wrong Display: Visually indicate correct and incorrect answers.
-Play Again Button: Provide an option to restart the game.
-Exit to Scoreboard Button: Allow users to view their high scores.
-Wireframe link
+#### Owner Goals:
 
-Surface:
-Visual Design: Use a visually appealing and intuitive design to enhance the overall user experience.
-Color Scheme: Employ a color scheme that is both engaging and comfortable for extended usage.
-Responsive Design: Ensure the game is accessible and functional across various devices.
-Audio Feedback: Incorporate audio elements for the correct word and word pronunciation.
-Clear Typography: Use clear and readable fonts for an optimal reading experience.
-Visual ID
+- **User Retention:** The primary goal is to keep users engaged and motivated to continue their language learning journey.
+- **Educational Impact:** The owner aims to contribute positively to users' language acquisition.
+- **User Satisfaction:** Ensuring that users find the game enjoyable and beneficial for language learning
 
-Future Features
+### Scope:
+
+- **Learning Mechanism:** The primary function is to present users with French-English word pairs for learning.
+- **Feedback System:** Provide instant feedback on correct and incorrect answers, reinforcing learning.
+- **Replayability:** Allow users to play the game repeatedly to reinforce vocabulary and improve retention.
+- **Shuffling Words:** Implement a mechanism to shuffle words on page reload, providing a fresh learning experience.
+
+![Screen shots of the pages with comments](docs/comments.png)
+
+### Structure:
+
+- **Flashcard Interface:** Use a flashcard format to present words, focusing on one word at a time for effective learning.
+- **User Input:** Incorporate a text input for users to type their answers.
+- **Feedback Display:** Display a visual cue (e.g., green flash) for correct answers and provide the correct word on mistakes.
+- **Audio Feedback:** Include the option for users to listen to the correct pronunciation.
+
+
+### Skeleton:
+- **Start Button:** Initiate the game with a "Start Game" button.
+- **User Input Field:** Allow users to type their answers.
+- **Submit Button:** Trigger the evaluation of user input.
+- **Correct/Wrong Display:** Visually indicate correct and incorrect answers.
+- **Play Again Button:** Provide an option to restart the game.
+- **Exit to Scoreboard Button:** Allow users to view their high scores.
+
+![Wireframe link](docs/wireframe.png)
+
+### Surface:
+- **Visual Design:** Use a visually appealing and intuitive design to enhance the overall user experience.
+- **Color Scheme:** Employ a color scheme that is both engaging and comfortable for extended usage.
+- **Responsive Design:** Ensure the game is accessible and functional across various devices.
+- **Audio Feedback:** Incorporate audio elements for the correct word and word pronunciation.
+- **Clear Typography:** Use clear and readable fonts for an optimal reading experience.
+
+![Visual ID](docs/wordstream-vi.png)
+
+## Future Features
+
 We plan to enhance the website with the following features:
 
-More languages.
-Filter option to be able the practice the words the the user finds harder.
-Top ten user highscore.
-3d effect when flipping the flashcards.
-Technology Used
-Front-end: HTML, CSS, JavaScript
-Figma for wireframes
-ChatGPT - for AI assistance
-Adobe Photoshop for image editing
-Adobe express for image content
-Adobe Illustrator for graphic content
-www.w3.org: Utilized to perform validation test of HTML and CSS.
-https://jshint.com/: Utilized to perform validation test of JavaScript.
-https://ui.dev/amiresponsive: Utilized for a quick overview of the responsivness.
-Testing
-Testing was an integral part of the website development process. We performed comprehensive tests across various devices and screen sizes to ensure a seamless user experience. This included functional testing to verify proper functionality of all features, as well as responsive testing to guarantee optimal display on different devices. Additionally we performed serval validation tests.
+- More languages.
+- Filter option to be able the practice the words the the user  finds harder.
+- Top ten user highscore.
+- 3d effect when flipping the flashcards.
 
-HTML Validation of index.html, no errors found
-CSS Validation of style.css, no errors found
-JavaScript Validation, no errors found
-Lighthouse report
-Responsiveness overview
-Development
+## Technology Used
+
+- Back-end: Python
+- Figma for wireframes
+- ChatGPT - for AI assistance
+- www.w3.org: Utilized to perform validation test of HTML and CSS.
+- https://jshint.com/: Utilized to perform validation test of JavaScript.
+- https://ui.dev/amiresponsive: Utilized for a quick overview of the responsivness.
+- https://www.asciiart.eu/image-to-ascii: Generating ASCII art image
+
+## Testing
+
+XXXXXX
+
+- [HTML Validation of index.html, no errors found](docs/index-validation.png)
+- [CSS Validation of style.css, no errors found](docs/css-validation.png)
+- [JavaScript Validation, no errors found](docs/javascript-validation.png)
+- [Lighthouse report](docs/lighthouse-report.png)
+- [Responsiveness overview](docs/responsive-test.png)
+
+## Development
+
 In crafting WordStream Learning, our development journey revolved around harnessing the power of HTML5, CSS3, and JavaScript. These technologies served as the backbone, providing a solid foundation for the website's structure, style, and interactive features. Our approach embraced a mobile-first philosophy, ensuring a seamless experience across various devices. To bring our vision to life, we leveraged Figma for meticulous UI/UX design and relied on Git and GitHub for effective version control.
 
 As we chart the course for future development, we've identified key areas that can further enrich the WordStream Learning experience:
 
-User-Centric Enhancements: Place a premium on user feedback to enhance the overall user experience. Consider implementing user registration, profile management, and avenues for user-generated content, fostering a more personalized connection.
+- **User-Centric Enhancements:** Place a premium on user feedback to enhance the overall user experience. Consider implementing user registration, profile management, and avenues for user-generated content, fostering a more personalized connection.
 
-Feature Expansion: Enrich the platform by introducing advanced search filters, seamless integration with social media platforms, and engaging features such as forums or challenges. These additions will contribute to a vibrant and interactive community.
+- **Feature Expansion:** Enrich the platform by introducing advanced search filters, seamless integration with social media platforms, and engaging features such as forums or challenges. These additions will contribute to a vibrant and interactive community.
 
-Improving Accessibility: Strive for inclusivity by ensuring adherence to accessibility standards, catering to users with diverse needs and disabilities.
+- **Improving Accessibility:** Strive for inclusivity by ensuring adherence to accessibility standards, catering to users with diverse needs and disabilities.
 
-Continual Testing and Optimization: Uphold a commitment to excellence through an ongoing testing strategy. Identify and address bugs, enhance performance, and validate design changes to ensure a polished user experience.
+- **Continual Testing and Optimization:** Uphold a commitment to excellence through an ongoing testing strategy. Identify and address bugs, enhance performance, and validate design changes to ensure a polished user experience.
 
-Community Engagement: Cultivate a sense of community by encouraging user-driven content creation. Welcome feedback with open arms and respond promptly to user queries or concerns, fostering a responsive and vibrant community.
+- **Community Engagement:** Cultivate a sense of community by encouraging user-driven content creation. Welcome feedback with open arms and respond promptly to user queries or concerns, fostering a responsive and vibrant community.
 
-Security Measures: Fortify the platform with robust security measures. Safeguard user data, mitigate potential vulnerabilities, and proactively prevent security breaches to uphold user trust.
+- **Security Measures:** Fortify the platform with robust security measures. Safeguard user data, mitigate potential vulnerabilities, and proactively prevent security breaches to uphold user trust.
 
 By embracing these strategic steps, our vision for WordStream Learning is not just a website but a dynamic hub for language learning. This roadmap emphasizes user-centric design, feature richness, accessibility, continuous improvement, community engagement, and robust security. As we embark on this journey, we remain committed to delivering a learning experience that goes beyond expectations.
 
 ## Deployment
 
-Apple Vision Pro Product Survey can be deployed to Heroku, a platform designed to host dynamic web applications. Follow these steps to deploy the application:
+[Deployed page](https://apple-vision-pro-survey-46239bd7970b.herokuapp.com/)
+The deployment process involved leveraging GitHub Pages, an integrated service provided by GitHub, to publish the website directly from the project's repository. Here are the steps for deployment:
 
-1. **Create a Heroku Account:** If you haven't already, sign up for a Heroku account [here](https://www.heroku.com/).
+1. **GitHub Repository:** The Apple Vision Pro Product Survey's codebase resides in a GitHub repository. - [Repository](https://github.com/davidb3rgqvist/project3)
+   
+2. **Branch Setup:** Utilizing the default 'main' branch to host the deployable code.
 
-2. **Set Up Your Heroku App:** From the Heroku dashboard, click on the "Create new app" button. Choose a unique name for your app (e.g., "apple-vision-pro-survey"), select your region, and create the app.
+3. **Configuration:** Configuring the repository settings within the GitHub repository's settings page to select the branch to deploy.
 
-3. **Configure Environment Variables:** Navigate to the settings tab of your Heroku app dashboard. Under the "Config Vars" section, add any necessary environment variables required for your application. Ensure sensitive data such as API keys or database credentials are securely stored as environment variables.
+4. **GitHub Pages:** Enabling GitHub Pages from the repository settings to initiate the deployment process.
 
-4. **Add Buildpacks:** In the settings tab, locate the "Buildpacks" section. Add the Python buildpack first, followed by the Node.js buildpack. Ensure that the Python buildpack is listed above the Node.js buildpack.
+5. **Verification:** Verifying the deployment status and ensuring the website is live and accessible at the specified GitHub Pages URL.
+https://docs.google.com/spreadsheets/d/1smBjfvvnpdDnmvxKwiwAl2V6hCMFwyGIR9vtk1-deY0/edit?usp=sharing: See stored data
 
-5. **Deploy from GitHub:** In the deploy tab of your Heroku app dashboard, select GitHub as your deployment method. Connect your Heroku app to your GitHub repository containing the "Apple Vision Pro Product Survey" codebase. Choose the branch you want to deploy.
+### Accessing the Deployed Site
 
-6. **Manual or Automatic Deployment:** Choose between manual or automatic deployment. For manual deployment, trigger the deployment by selecting the branch and clicking the "Deploy Branch" button. For automatic deployment, enable automatic deploys so that Heroku rebuilds your app every time you push changes to your GitHub repository.
+The deployed application can be accessed using the following URL: [https://apple-vision-pro-survey-46239bd7970b.herokuapp.com/](hhttps://apple-vision-pro-survey-46239bd7970b.herokuapp.com/)
 
-7. **Monitor Deployment:** During deployment, you can monitor the progress through the deployment logs. Once the deployment is successful, Heroku will provide a link to access your deployed application.
+The Heruko deployment offers a convenient way to share the Apple Vision Pro Product Survey app with users globally.
 
-8. **Access Your Deployed Site:** You can access your deployed "Apple Vision Pro Product Survey" application using the provided Heroku app URL. Share this URL with users to access your survey.
+## Credits
 
-9. **Further Configuration:** Depending on your application's requirements, you may need to configure additional settings such as scaling dynos, setting up a custom domain, or adding add-ons for additional functionality.
+XXX
 
-10. **Enjoy Your Deployed Application:** Congratulations! Your "Apple Vision Pro Product Survey" application is now deployed and accessible on the web. Users can start filling out the survey and providing valuable feedback.
+### Open-Source Libraries
 
-For more detailed information on deploying Python applications to Heroku, refer to the official Heroku documentation.
+- **Code Institute:** Primary educational content encompassing comprehensive videos elucidating Python. Mainly from the "Love Sandwiches Walktrough Project". 
 
-GitHub Repository: The Free Gym Locator's codebase resides in a GitHub repository. - Repository
+### External Resources
 
-Branch Setup: Utilizing the default 'main' branch to host the deployable code.
+- **GitHub:** Facilitated version control and hosting of the project with GitHub Pages.
 
-Configuration: Configuring the repository settings within the GitHub repository's settings page to select the branch to deploy.
+### Inspirations and Mentors
 
-GitHub Pages: Enabling GitHub Pages from the repository settings to initiate the deployment process.
+- **Brian O'Hare / Code Institute:** Provided guidance, mentorship, or inspiration during the project's development.
 
-Verification: Verifying the deployment status and ensuring the website is live and accessible at the specified GitHub Pages URL.
-
-Accessing the Deployed Site
-The deployed WordStream website can be accessed using the following URL: https://davidb3rgqvist.github.io/project2/
-
-The GitHub Pages deployment offers a convenient way to share the WordStream website with users
+We extend our heartfelt gratitude to all who have contributed, both directly and indirectly, to the Apple Vision Pro Product Survey project. Your invaluable input has played a significant role in shaping and refining this application, catering to the needs of users and researchers alike seeking comprehensive insights in market analysis for this product.

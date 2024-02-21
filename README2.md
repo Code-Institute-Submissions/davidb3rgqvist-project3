@@ -80,19 +80,17 @@ We plan to enhance the website with the following features:
 
 ## Technology Used
 
-- Front-end: HTML, CSS, JavaScript
+- Back-end: Python
 - Figma for wireframes
 - ChatGPT - for AI assistance
-- Adobe Photoshop for image editing
-- Adobe express for image content
-- Adobe Illustrator for graphic content
 - www.w3.org: Utilized to perform validation test of HTML and CSS.
 - https://jshint.com/: Utilized to perform validation test of JavaScript.
 - https://ui.dev/amiresponsive: Utilized for a quick overview of the responsivness.
+- https://www.asciiart.eu/image-to-ascii: Generating ASCII art image
 
 ## Testing
 
-Testing was an integral part of the website development process. We performed comprehensive tests across various devices and screen sizes to ensure a seamless user experience. This included functional testing to verify proper functionality of all features, as well as responsive testing to guarantee optimal display on different devices. Additionally we performed serval validation tests.
+XXXXXX
 
 - [HTML Validation of index.html, no errors found](docs/index-validation.png)
 - [CSS Validation of style.css, no errors found](docs/css-validation.png)
@@ -122,10 +120,10 @@ By embracing these strategic steps, our vision for WordStream Learning is not ju
 
 ## Deployment
 
-[Deployed page](https://davidb3rgqvist.github.io/project2/)
+[Deployed page](https://apple-vision-pro-survey-46239bd7970b.herokuapp.com/)
 The deployment process involved leveraging GitHub Pages, an integrated service provided by GitHub, to publish the website directly from the project's repository. Here are the steps for deployment:
 
-1. **GitHub Repository:** The Free Gym Locator's codebase resides in a GitHub repository. - [Repository](https://github.com/davidb3rgqvist/project2)
+1. **GitHub Repository:** The Apple Vision Pro Product Survey's codebase resides in a GitHub repository. - [Repository](https://github.com/davidb3rgqvist/project3)
    
 2. **Branch Setup:** Utilizing the default 'main' branch to host the deployable code.
 
@@ -134,32 +132,28 @@ The deployment process involved leveraging GitHub Pages, an integrated service p
 4. **GitHub Pages:** Enabling GitHub Pages from the repository settings to initiate the deployment process.
 
 5. **Verification:** Verifying the deployment status and ensuring the website is live and accessible at the specified GitHub Pages URL.
+https://docs.google.com/spreadsheets/d/1smBjfvvnpdDnmvxKwiwAl2V6hCMFwyGIR9vtk1-deY0/edit?usp=sharing: See stored data
 
 ### Accessing the Deployed Site
 
-The deployed WordStream website can be accessed using the following URL: [https://davidb3rgqvist.github.io/project2/](https://davidb3rgqvist.github.io/project2/)
+The deployed application can be accessed using the following URL: [https://apple-vision-pro-survey-46239bd7970b.herokuapp.com/](hhttps://apple-vision-pro-survey-46239bd7970b.herokuapp.com/)
 
-The GitHub Pages deployment offers a convenient way to share the WordStream website with users globally.
-
-Feel free to explore the live version of the WordStream game.
+The Heruko deployment offers a convenient way to share the Apple Vision Pro Product Survey app with users globally.
 
 ## Credits
 
-The development and creation of the WordStream website would not have been possible without the contributions, support, and resources from various individuals and organizations. We would like to extend our gratitude and credit to the following:
+XXX
 
 ### Open-Source Libraries
 
-- **Google Fonts:** Used for typography and font styles across the website.
-- **Font Awesome:** Provided icons used for navigation the play button, enhancing user experience.
-- **Code Institute:** Primary educational content encompassing comprehensive videos elucidating HTML, CSS, UX and JavaScript. Mainly from the "Love Math Walktrough Project". 
+- **Code Institute:** Primary educational content encompassing comprehensive videos elucidating Python. Mainly from the "Love Sandwiches Walktrough Project". 
 
 ### External Resources
 
-- **Adobe Express:** Provided high-quality images used throughout the website.
 - **GitHub:** Facilitated version control and hosting of the project with GitHub Pages.
 
 ### Inspirations and Mentors
 
 - **Brian O'Hare / Code Institute:** Provided guidance, mentorship, or inspiration during the project's development.
 
-We express our sincere appreciation to everyone who contributed directly or indirectly to WordStream project, helping shape and enhance this platform for users seeking to learn 1000 french words in a quick and fun way.
+We extend our heartfelt gratitude to all who have contributed, both directly and indirectly, to the Apple Vision Pro Product Survey project. Your invaluable input has played a significant role in shaping and refining this application, catering to the needs of users and researchers alike seeking comprehensive insights in market analysis for this product.

@@ -31,8 +31,63 @@ SHEET = GSPREAD_CLIENT.open('ProductSurvey')
 def welcome_message():
     print()
     print("Apple Vision Pro Buying Survey!")
-    print("""""")
-# Menu
+    print("""
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                   .:-+*****+++++++**##*=-..                                        
+                              ..+#+=--=----=------------==+##:.                                     
+                            .=*=------=----=---------------==*#.                                    
+                        .=*%%%%%%%#*+=-----=----------------==%#.                                   
+                  ..:-%%%%%%%%%%%%%%%%%%%%%%#+-------------==+%%.                                   
+             :+=***#%%%#*+++=======++*#%%%%%%%%%#=----------=%%#:                                   
+            =-=---===--------::::::::::::--=+*%%%%%+-------+%%%#:                                   
+          .+:----::--...::---::--::::::::::::::-*%%%#----=#@@%%#:                                   
+          :+:...........:::::::..........:-----::-#%###%@@@@%###*-                                  
+          -+=--::.......:::::::...........:-----::-%@@@@@@@@%##*.=+===++++==-:.                     
+          ===-------:::::::::::............------..-@@@@@@@%%*+. .=*##***********-                  
+          -+=---------:::::::..............:-----::-#@@@@@%%-    .+**-:......:-*##-.                
+          :+=---------:::::::::::::........::------:*%#%%%*.     .-+******#######**#.               
+          .+=------------::-:::::::::::::::::::--:::*%=..              .+###############*.          
+           -+=--------:::::::::::::::::::::::::::::=%#.               :*#################=          
+            -=------:::::::-:::::::::::::::::::::-=#+.              .+###################:          
+             .==-----:-+=-:..::::::::::::::::::--=*:               :*###################:           
+               .:--:..        ..:::::::::::::---.                .+*###################-            
+                                  ..::::----:..                  +%@@@@@@@@@@@@%%%####-             
+                                                                 +################%%#=.             
+                                                                  .-==+**#########%%=               
+                                                                              ..::..                
+         .::::   .::::::.  .::::::.  .:::     .:::::::.                                             
+        .#@@@@:  .@@@@@@@#.:@@@@@@@*.-@@#     =@@@@@@@=                                             
+        .%@@@@-  .@@%. +@@=:@@%. *@@:-@@#     =@@+                                                  
+        .@@:@@+  .@@%. :@@+:@@%. =@@=-@@#     =@@+                                                  
+        +@%.%@%  .@@%. :@@+:@@%. =@@=-@@#     =@@+                                                  
+       .@@#.*@@: .@@@++@@@::@@@+*@@@:-@@#     =@@@@@@+                                              
+       :@@+ =@@+ .@@@@@@%- :@@@@@@%: -@@#     =@@*:::.                                              
+       =@@+=*@@%..@@%.     :@@%.     -@@#     =@@+                                                  
+       #@@@@@@@@..@@%.     :@@%.     -@@#     =@@+                                                  
+       @@*   +@@:.@@%.     :@@%.     -@@@%%%%==@@%%%%%-                                             
+      :%%-   :%%+.%%#.     :%%#.     -%%%%%%%=-%%%%%%%=                                             
+      ....    ... ...    .:..   ....    .:..    ....  ...      .....     .....        .:..          
+      :@@*   .@@-:@@%..=@@@@@%. =@@* .+@@@@@@: :@@@@. +@@:     %@@@@@@*..@@@@@@@#. .*@@@@@@:        
+       %@@.  +@@.:@@%.=@@#.:@@%.=@@* +@@#.:@@%.:@@@@= +@@:     %@@::*@@*.@@@::#@@* =@@*..@@@.       
+       *@@-  %@%.:@@%.+@@+  #%%.=@@* *@@-  %@@.:@@@@# +@@:     %@@. .@@%.@@%. .@@# *@@: .#@@:       
+       =@@* :@@* :@@%.:@@@:     =@@* *@@-  %@@.:@@#@@-+@@:     %@@. .@@%.@@%. .@@* *@@: .#@@:       
+       :@@%.=@@- :@@%. .%@@%:   =@@* *@@-  %@@.:@@*+@@*@@:     %@@..+@@*.@@@#%@@%. *@@: .#@@:       
+        @@@.*@@. :@@%.   -@@@#. =@@* *@@-  %@@.:@@*.@@%@@:     %@@@@@@#..@@@@@@@%. *@@: .#@@:       
+        +@@:#@*  :@@%.     +@@#.=@@* *@@-  %@@.:@@* +@@@@:     %@@:..   .@@%. :@@* *@@: .#@@:       
+        .@@+@@=  :@@%.*@@: .@@@.=@@* *@@-  %@@.:@@* :@@@@:     %@@.     .@@%. .@@# *@@: .#@@:       
+        .%@@@@:  :@@%.=@@#=*@@%.=@@* =@@%=+@@%.:@@*  +@@@:     %@@.     .@@%. .@@# -@@%=+@@@.       
+        .#@@@@.  :@@%. -@@@@@*. =@@*  -@@@@@#. :@@*  .@@@:     %@@.     .@@%. .@@%. =%@@@@#.        
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+""")
     print()
     print(Color.CYAN + "This survey aims to gather insights into the likelihood of purchasing the Apple Vision Pro product." + Color.END)
     print()
@@ -49,10 +104,10 @@ def insert_data():
     print(Color.UNDERLINE + "Choose Gender:\n" + Color.END)
 
     gender_choices = {'M': 'Male', 'F': 'Female'}
-    gender_input = input( "Gender (M/F): ").strip().upper()
+    gender_input = input( "Enter the gender (M for Male, F for Female: ").strip().upper()
     print()
     while gender_input not in gender_choices:
-        print("Invalid choice. Please choose either 'M' or 'F'.")
+        print(Color.RED + "Invalid choice. Please choose either 'M' or 'F'.\n" + Color.END)
         gender_input = input("Gender (M/F): ").strip().upper()
     gender = gender_choices[gender_input]
 
@@ -66,7 +121,7 @@ def insert_data():
     age_group_input = input("\nEnter the number corresponding to the age group: ").strip()
     print()
     while age_group_input not in age_group_choices:
-        print("\nInvalid choice. Please choose a number between 1 and 6.")
+        print(Color.RED + "Invalid choice. Please choose a number between 1 and 6." + Color.END)
         age_group_input = input("\nEnter the number corresponding to the age group: ").strip()
         print()
     age_group = age_group_choices[age_group_input]
@@ -81,7 +136,7 @@ def insert_data():
     income_bracket_input = input("\nEnter the number corresponding to the income bracket: ").strip()
     print()
     while income_bracket_input not in income_bracket_choices:
-        print("Invalid choice. Please choose a number between 1 and 5.")
+        print(Color.RED + "Invalid choice. Please choose a number between 1 and 5.\n" + Color.END)
         income_bracket_input = input("Enter the number corresponding to the income bracket: ").strip()
     income_bracket = income_bracket_choices[income_bracket_input]
 
@@ -89,19 +144,22 @@ def insert_data():
     likelihood_input = input("Enter a number between 0 and 10: ").strip()
     print()
     while not likelihood_input.isdigit() or int(likelihood_input) < 0 or int(likelihood_input) > 10:
-        print("\nInvalid input. Please enter a number between 0 and 10.")
+        print(Color.RED + "Invalid input. Please enter a number between 0 and 10." + Color.END)
         likelihood_input = input("\nEnter a number between 0 and 10: ").strip()
+        print()
     likelihood = int(likelihood_input)
 
     sheet = GSPREAD_CLIENT.open('ProductSurvey')
     input_data_worksheet = sheet.worksheet('Input data')
     input_data_worksheet.append_row([gender, age_group, income_bracket, likelihood])
-    print(Color.GREEN + "\nData has been successfully inserted into the spreadsheet.\n" + Color.END)
-    print()
+    print(Color.GREEN + "Data has been successfully inserted into the spreadsheet.\n" + Color.END)
+    
     press_enter_to_main_menu()
+
 
 # Extract data menu
 def extract_analyzed_data():
+    clear_screen()
     print()
     print("Extract Analyzed Data:\n")
     print(Color.UNDERLINE + "Choose one of the following options:" + Color.END)
@@ -147,22 +205,28 @@ def extract_analyzed_data():
 
 # Search by Gender
 def search_by_gender():
-    gender_input = input("Enter the gender (M for Male, F for Female): ").strip().upper()
+    while True:
+        gender_input = input("Enter the gender (M for Male, F for Female): ").strip().upper()
+        
+        if gender_input == 'M':
+            search_criteria = 'Male'
+            break
+        elif gender_input == 'F':
+            search_criteria = 'Female'
+            break
+        else:
+            print(Color.RED + "\nInvalid input. Please enter 'M' for Male or 'F' for Female.\n" + Color.END)
     
-    if gender_input == 'M':
-        gender = 'Male'
-    elif gender_input == 'F':
-        gender = 'Female'
+    likelihood_gender = calculate_likelihood_gender(search_criteria)
+    
+    if likelihood_gender is not None:
+        print()
+        print(Color.GREEN + f"Likelihood of purchase for {search_criteria} is {likelihood_gender:.2f}%\n" + Color.END)
     else:
-        print(Color.RED + "Invalid input. Please enter 'M' for Male or 'F' for Female." + Color.END)
-        extract_analyzed_data()
-        return
+        print(Color.RED + "\nInvalid gender criteria. Please choose 'Male' or 'Female'.\n" + Color.END)
     
-    likelihood_gender = calculate_likelihood_gender(gender)
-    print()
-    print(Color.GREEN + f"\nLikelihood of purchase for {gender} is {likelihood_gender:.2f}%\n" + Color.END)
-    print()
     press_enter_to_extract_data_menu()
+
 
 # Search by Age Group
 def search_by_age_group():
@@ -177,19 +241,16 @@ def search_by_age_group():
     print()
     while age_group_input not in age_group_choices:
         print(Color.RED + "Invalid choice. Please choose a number between 1 and 6.\n" + Color.END)
-        age_group_input = input("Enter the number corresponding to the age group: \n").strip()
+        age_group_input = input("Enter the number corresponding to the age group: ").strip()
+        print()
     age_group = age_group_choices[age_group_input]
     likelihood_age_group = calculate_likelihood_age_group(age_group)
     print(Color.GREEN + f"Likelihood of purchase for age group {age_group} is {likelihood_age_group:.2f}%\n" + Color.END)
     press_enter_to_extract_data_menu()
 
-# Combine Gender and Income Bracket
-def combine_gender_and_income_bracket():
-    gender = input("Enter the gender (Male/Female): ").strip().capitalize()
-    while gender not in ['Male', 'Female']:
-        print(Color.RED + "Invalid choice. Please choose either 'Male' or 'Female'." + Color.END)
-        gender = input("\nEnter the gender (Male/Female): ").strip().capitalize()
 
+# Search by Income Bracket
+def search_by_income_bracket():
     income_bracket_choices = {
         '1': '$25,000-$49,999', '2': '$50,000-$74,999', '3': '$75,000-$99,999',
         '4': '$100,000-$149,999', '5': '$150,000 or more'
@@ -205,25 +266,24 @@ def combine_gender_and_income_bracket():
         print()
     income_bracket = income_bracket_choices[income_bracket_input]
 
-    # Calculate likelihood for the combination
-    likelihood_percentage = calculate_likelihood_gender_and_income_bracket(gender, income_bracket)
-
-    # Print the result
-    if likelihood_percentage:
-        print(Color.GREEN + f"\nLikelihood of purchase for {gender} and {income_bracket} is {likelihood_percentage:.2f}%\n" + Color.END)
-    else:
-        print(Color.RED + "\nNo data found for the specified combination.\n" + Color.END)
-
-    # Wait for user input
+    likelihood_income_bracket = calculate_likelihood_income_bracket(income_bracket)
+    print(Color.GREEN + f"Likelihood of purchase for customers in the income bracket {income_bracket} is {likelihood_income_bracket:.2f}%.\n" + Color.END)
     press_enter_to_extract_data_menu()
+
 
 # Combine Gender and Age Group
 def combine_gender_and_age_group():
-    gender = input("Enter the gender (Male/Female): ").strip().capitalize()
+    gender = None
     while gender not in ['Male', 'Female']:
-        print(Color.RED + "Invalid choice. Please choose either 'Male' or 'Female'." + Color.END)
-        gender = input("\nEnter the gender (Male/Female): ").strip().capitalize()
-
+        gender_input = input("Enter the gender (M for Male, F for Female): ").strip().upper()
+        
+        if gender_input == 'M':
+            gender = 'Male'
+        elif gender_input == 'F':
+            gender = 'Female'
+        else:
+            print(Color.RED + "\nInvalid input. Please enter 'M' for Male or 'F' for Female.\n" + Color.END)
+    
     age_group_choices = {
         '1': '18-24', '2': '25-34', '3': '35-44',
         '4': '45-54', '5': '55-64', '6': '65+'
@@ -239,17 +299,53 @@ def combine_gender_and_age_group():
         print()
     age_group = age_group_choices[age_group_input]
 
-    # Calculate likelihood for the combination
     likelihood_percentage = calculate_likelihood_gender_and_age_group(gender, age_group)
 
-    # Print the result
-    if likelihood_percentage:
-        print(Color.GREEN + f"\nLikelihood of purchase for {gender} and {age_group} is {likelihood_percentage:.2f}%\n" + Color.END)
+    if likelihood_percentage is not None:
+        print(Color.GREEN + f"Likelihood of purchase for {gender} and {age_group} is {likelihood_percentage:.2f}%\n" + Color.END)
     else:
         print(Color.RED + "\nNo data found for the specified combination.\n" + Color.END)
 
-    # Wait for user input
     press_enter_to_extract_data_menu()
+
+
+# Combine Gender and Income Bracket
+def combine_gender_and_income_bracket():
+    gender = None
+    while gender not in ['Male', 'Female']:
+        gender_input = input("Enter the gender (M for Male, F for Female): ").strip().upper()
+        
+        if gender_input == 'M':
+            gender = 'Male'
+        elif gender_input == 'F':
+            gender = 'Female'
+        else:
+            print(Color.RED + "\nInvalid input. Please enter 'M' for Male or 'F' for Female.\n" + Color.END)
+    
+    income_bracket_choices = {
+        '1': '$25,000-$49,999', '2': '$50,000-$74,999', '3': '$75,000-$99,999',
+        '4': '$100,000-$149,999', '5': '$150,000 or more'
+    }
+    print(Color.UNDERLINE + "\nChoose Income Bracket:\n" + Color.END)
+    for key, value in income_bracket_choices.items():
+        print(f"{key}: {value}")
+    income_bracket_input = input("\nEnter the number corresponding to the income bracket: ").strip()
+    print()
+    while income_bracket_input not in income_bracket_choices:
+        print(Color.RED + "Invalid choice. Please choose a number between 1 and 5.\n" + Color.END)
+        income_bracket_input = input("Enter the number corresponding to the income bracket: ").strip()
+        print()
+    income_bracket = income_bracket_choices[income_bracket_input]
+
+    likelihood_percentage = calculate_likelihood_gender_and_income_bracket(gender, income_bracket)
+
+    if likelihood_percentage is not None:
+        print(Color.GREEN + f"Likelihood of purchase for {gender} and {income_bracket} is {likelihood_percentage:.2f}%\n" + Color.END)
+    else:
+        print(Color.RED + "\nNo data found for the specified combination.\n" + Color.END)
+
+    press_enter_to_extract_data_menu()
+
 
 # Combine Age Group and Income Bracket
 def combine_age_group_and_income_bracket():
@@ -282,28 +378,43 @@ def combine_age_group_and_income_bracket():
         income_bracket_input = input("Enter the number corresponding to the income bracket: ").strip()
         print()
     income_bracket = income_bracket_choices[income_bracket_input]
-    
-    # Calculate likelihood for the combination
+
     likelihood_percentage = calculate_likelihood_age_group_and_income_bracket(age_group, income_bracket)
-    
-    # Print the result
-    if likelihood_percentage:
-        print(Color.GREEN + f"\nLikelihood of purchase for {age_group} and {income_bracket} is {likelihood_percentage:.2f}%\n" + Color.END)
+
+    if likelihood_percentage is not None:
+        print(Color.GREEN + f"Likelihood of purchase for {age_group} and {income_bracket} is {likelihood_percentage:.2f}%\n" + Color.END)
     else:
         print(Color.RED + "\nNo data found for the specified combination.\n" + Color.END)
-    
-    # Wait for user input
+
     press_enter_to_extract_data_menu()
+
+
+# Calculate likelihood for Age Group and Income Bracket
+def calculate_likelihood_age_group_and_income_bracket(age_group, income_bracket):
+    input_data_worksheet = SHEET.worksheet('Input data')
+    analyzed_data = input_data_worksheet.get_all_records()
+
+    likelihood_values = [int(str(record.get('Likelihood', 0))) for record in analyzed_data if
+                         record.get('Age Group') == age_group and record.get('Income Bracket') == income_bracket and
+                         str(record.get('Likelihood', 0)).isdigit()]
+
+    if not likelihood_values:
+        return 0
+
+    mean_likelihood = statistics.mean(likelihood_values)
+    mean_likelihood_percent = (mean_likelihood / 10) * 100
+
+    return mean_likelihood_percent
 
 # Create Persona (combination of gender, age group, and income bracket)
 def create_persona():
     print(Color.UNDERLINE + "\nChoose Gender:\n" + Color.END)
-    gender_input = input("Enter the gender (M/F): ").strip().upper()
+    gender_input = input("Enter the gender (M for Male, F for Female): ").strip().upper()
     print()
     while gender_input not in ['M', 'F']:
         print(Color.RED + "Invalid choice. Please choose either 'M' or 'F'." + Color.END)
         print()
-        gender_input = input("\nEnter the gender (M/F): ").strip().upper()
+        gender_input = input("Enter the gender (M for Male, F for Female): ").strip().upper()
     gender = 'Male' if gender_input == 'M' else 'Female' 
 
     age_group_choices = {
@@ -331,16 +442,16 @@ def create_persona():
     income_bracket_input = input("\nEnter the number corresponding to the income bracket: ").strip()
     print()
     while income_bracket_input not in income_bracket_choices:
-        print(Color.RED + "Invalid choice. Please choose a number between 1 and 5.\n" + Color.END)
-        income_bracket_input = input("\nEnter the number corresponding to the income bracket: \n").strip()
+        print(Color.RED + "Invalid choice. Please choose a number between 1 and 5." + Color.END)
+        income_bracket_input = input("\nEnter the number corresponding to the income bracket: ").strip()
+        print()
     income_bracket = income_bracket_choices[income_bracket_input]
 
     persona = {'Gender': gender, 'Age Group': age_group, 'Income Bracket': income_bracket}
     likelihood_percentage = calculate_likelihood_persona(persona)
     if likelihood_percentage is not None:
         formatted_persona = ", ".join([f"{key}: {value}" for key, value in persona.items()])
-        print(Color.GREEN + f"\nLikelihood of purchase for persona {formatted_persona} is {likelihood_percentage}\n" + Color.END)
-        print()
+        print(Color.GREEN + f"Likelihood of purchase for persona {formatted_persona} is {likelihood_percentage}\n" + Color.END)
         while True:
             store_option = input("Do you want to store the search results? (Y/N): ").strip().lower()
             if store_option == 'y' or store_option == 'yes':
@@ -356,6 +467,7 @@ def create_persona():
         print(Color.RED + "\nCould not calculate likelihood for the persona.\n" + Color.END)
 
     press_enter_to_extract_data_menu()
+
 
 # Calculate likelihood for Gender and Income Bracket
 def calculate_likelihood_gender_and_income_bracket(gender, income_bracket):
@@ -374,6 +486,7 @@ def calculate_likelihood_gender_and_income_bracket(gender, income_bracket):
 
     return mean_likelihood_percent
 
+
 # Calculate likelihood for Gender and Age Group
 def calculate_likelihood_gender_and_age_group(gender, age_group):
     input_data_worksheet = SHEET.worksheet('Input data')
@@ -390,6 +503,7 @@ def calculate_likelihood_gender_and_age_group(gender, age_group):
     mean_likelihood_percent = (mean_likelihood / 10) * 100
 
     return mean_likelihood_percent
+
 
 # Calculate likelihood for Age Group and Income Bracket
 def calculate_likelihood_age_group_and_income_bracket(age_group, income_bracket):
@@ -408,28 +522,18 @@ def calculate_likelihood_age_group_and_income_bracket(age_group, income_bracket)
 
     return mean_likelihood_percent
 
-# Calculation gender for statistics 
-def calculate_total_gender_records(gender):
-    input_data_worksheet = SHEET.worksheet('Input data')
-    analyzed_data = input_data_worksheet.get_all_records()
-    print("Analyzing data inside the calculation function:")
-
-    total_gender_records = sum(1 for record in analyzed_data if record['Gender'] == gender)
-    
-    return total_gender_records
 
 # Store search result
 def store_search_result(persona, likelihood_percentage):
     sheet = GSPREAD_CLIENT.open('ProductSurvey')
     stored_search_worksheet = sheet.worksheet('Stored last search')
     stored_search_worksheet.append_row([persona['Gender'], persona['Age Group'], persona['Income Bracket'], likelihood_percentage])
-    print(Color.GREEN + "Search result stored successfully." + Color.END)
-    press_enter_to_main_menu()
+
 
 # Calculate likelihood in percentage
 def calculate_likelihood_gender(search_criteria):
     input_data_worksheet = SHEET.worksheet('Input data')
-    analyzed_data = input_data_worksheet.get_all_records() 
+    analyzed_data = input_data_worksheet.get_all_records()
 
     total_male_records = 0
     total_female_records = 0
@@ -440,15 +544,21 @@ def calculate_likelihood_gender(search_criteria):
         if 'Gender' in record and record['Gender'] in ['Male', 'Female']:
             if record['Gender'] == 'Male':
                 total_male_records += 1
-                total_male_likelihood_sum += record.get('Likelihood', 0)  
+                total_male_likelihood_sum += record.get('Likelihood', 0)
             else:
                 total_female_records += 1
-                total_female_likelihood_sum += record.get('Likelihood', 0) 
+                total_female_likelihood_sum += record.get('Likelihood', 0)
 
     male_likelihood_percentage = (total_male_likelihood_sum / (total_male_records * 10)) * 100 if total_male_records > 0 else 0
     female_likelihood_percentage = (total_female_likelihood_sum / (total_female_records * 10)) * 100 if total_female_records > 0 else 0
 
-    return {'Male': male_likelihood_percentage, 'Female': female_likelihood_percentage}
+    if search_criteria == 'Male':
+        return male_likelihood_percentage
+    elif search_criteria == 'Female':
+        return female_likelihood_percentage
+    else:
+        return None
+
 
 # Calculate age group
 def calculate_likelihood_age_group(age_group):
@@ -481,6 +591,7 @@ def calculate_likelihood_income_bracket(income_bracket):
 
     return mean_likelihood_percent
 
+
 # Calculate Persona
 def calculate_likelihood_persona(persona):
     input_data_worksheet = SHEET.worksheet('Input data')
@@ -503,6 +614,7 @@ def calculate_likelihood_persona(persona):
 
 # View stored data menu
 def view_stored_data():
+    clear_screen()
     print("\nView Stored Data:")
     print()
     print(Color.UNDERLINE + "Choose one of the following options:\n" + Color.END)
@@ -522,6 +634,7 @@ def view_stored_data():
     else:
         print(Color.RED + "\nInvalid choice. Please try again.\n" + Color.END)
 
+
 # View last persona
 def view_last_search_persona():
     sheet = GSPREAD_CLIENT.open('ProductSurvey')
@@ -530,19 +643,15 @@ def view_last_search_persona():
 
     if all_stored_search_personas:
         last_search_persona = all_stored_search_personas[-1] 
-        print("\nLast Search Persona:")
+        print(Color.UNDERLINE + "\nLast Search Persona:\n" + Color.END)
         for key, value in last_search_persona.items():
-            print(f"{key}: {value}")
-
-        if 'Likelihood Percentage' in last_search_persona:
-            print("Likelihood Percentage:", last_search_persona['Likelihood Percentage'])
-        else:
-            print("Likelihood Percentage: Data not available")
+            print(Color.GREEN + f"{key}: {value}" + Color.END)
     else:
         print(Color.RED + "\nNo available data\n" + Color.END)
 
     print()
-    press_enter_to_main_menu()
+    press_enter_to_stored_data_menu()
+
 
 # View all personas
 def view_all_stored_search_personas():
@@ -550,28 +659,39 @@ def view_all_stored_search_personas():
     stored_search_worksheet = sheet.worksheet('Stored last search')
     all_stored_search_personas = stored_search_worksheet.get_all_records()
 
-    print(Color.UNDERLINE + "\nAll Stored Search Personas:" + Color.END)
+    print(Color.UNDERLINE + "\nAll Stored Search Personas:\n" + Color.END)
     if all_stored_search_personas:
         for persona in all_stored_search_personas:
             for key, value in persona.items():
-                print(f"{key}: {value}")
+                print(Color.GREEN + f"{key}: {value}" + Color.END)
             print()
     else:
         print(Color.RED + "\nNo available data\n" + Color.END)
+    press_enter_to_stored_data_menu()
 
-    press_enter_to_main_menu()
 
+# Return to main menu by pressing enter
 def press_enter_to_main_menu():
     input("Press Enter to return to the main menu...")
     main()
 
+
+# Return to extract menu by pressing enter
 def press_enter_to_extract_data_menu():
     input("Press Enter to return to the extract data menu...")
     extract_analyzed_data()
 
+
+# Return to stored menu by pressing enter
+def press_enter_to_stored_data_menu():
+    input("Press Enter to return to the stored data menu...")
+    view_stored_data()
+
+
+# clear screen
 def clear_screen():
-    # Clear the terminal screen
     os.system('cls' if os.name == 'nt' else 'clear')
+
 
 #Main function
 def main():
@@ -589,6 +709,7 @@ def main():
             view_stored_data() 
         elif choice == '4':
             print("Exiting the program...")
+            print()
             break
         else:
             print(Color.RED + "Invalid choice. Please try again." + Color.END)

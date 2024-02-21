@@ -29,6 +29,11 @@ SHEET = GSPREAD_CLIENT.open('ProductSurvey')
 
 # Welcome image and text
 def welcome_message():
+    """
+    The welcome_message() function displays a welcome message for the Apple Vision Pro Buying Survey. It includes an 
+    ASCII art representation of the Apple logo and a brief introduction to the survey's purpose. Additionally, it presents 
+    a menu with options to insert data, extract analyzed data, view stored data, or exit the program.
+    """
     print()
     print("Apple Vision Pro Buying Survey!")
     print("""
@@ -87,7 +92,7 @@ def welcome_message():
                                                                                                     
                                                                                                     
                                                                                                     
-""")
+    """)
     print()
     print(Color.CYAN + "This survey aims to gather insights into the likelihood of purchasing the Apple Vision Pro product." + Color.END)
     print()
@@ -100,6 +105,12 @@ def welcome_message():
 
 # Input data
 def insert_data():
+    """
+    This function prompts the user to input gender, age group, income bracket, and likelihood 
+    of purchasing on a 0-10 scale. It validates the inputs and appends the data to a Google Sheets 
+    document named "ProductSurvey". Finally, it confirms successful insertion and prompts the user 
+    to press enter to return to the main menu.
+    """
     print("\nInsert Data - Please provide the following information:\n")
     print(Color.UNDERLINE + "Choose Gender:\n" + Color.END)
 
@@ -159,6 +170,11 @@ def insert_data():
 
 # Extract data menu
 def extract_analyzed_data():
+    """
+    This function provides a menu for extracting analyzed data from the "ProductSurvey" Google Sheets 
+    document. Users can choose various criteria such as gender, age group, income bracket, or combinations 
+    thereof to retrieve relevant information.
+    """
     clear_screen()
     print()
     print("Extract Analyzed Data:\n")
@@ -205,6 +221,9 @@ def extract_analyzed_data():
 
 # Search by Gender
 def search_by_gender():
+    """
+    Searches for the likelihood of purchase based on gender criteria provided by the user (Male or Female).
+    """
     while True:
         gender_input = input("Enter the gender (M for Male, F for Female): ").strip().upper()
         
@@ -230,6 +249,9 @@ def search_by_gender():
 
 # Search by Age Group
 def search_by_age_group():
+    """
+    Searches for the likelihood of purchase based on the selected age group.
+    """
     age_group_choices = {
         '1': '18-24', '2': '25-34', '3': '35-44',
         '4': '45-54', '5': '55-64', '6': '65+'
@@ -251,6 +273,9 @@ def search_by_age_group():
 
 # Search by Income Bracket
 def search_by_income_bracket():
+    """
+    Searches for the likelihood of purchase based on the selected income bracket.
+    """
     income_bracket_choices = {
         '1': '$25,000-$49,999', '2': '$50,000-$74,999', '3': '$75,000-$99,999',
         '4': '$100,000-$149,999', '5': '$150,000 or more'
@@ -273,6 +298,9 @@ def search_by_income_bracket():
 
 # Combine Gender and Age Group
 def combine_gender_and_age_group():
+    """
+    Searches for the likelihood of purchase based on the combination of gender and age group provided by the user.
+    """
     gender = None
     while gender not in ['Male', 'Female']:
         gender_input = input("Enter the gender (M for Male, F for Female): ").strip().upper()
@@ -311,6 +339,9 @@ def combine_gender_and_age_group():
 
 # Combine Gender and Income Bracket
 def combine_gender_and_income_bracket():
+    """
+    Searches for the likelihood of purchase based on the combination of gender and income bracket provided by the user.
+    """
     gender = None
     while gender not in ['Male', 'Female']:
         gender_input = input("Enter the gender (M for Male, F for Female): ").strip().upper()
@@ -349,6 +380,9 @@ def combine_gender_and_income_bracket():
 
 # Combine Age Group and Income Bracket
 def combine_age_group_and_income_bracket():
+    """
+    Searches for the likelihood of purchase based on the combination of age group and income bracket provided by the user.
+    """
     age_group_choices = {
         '1': '18-24', '2': '25-34', '3': '35-44',
         '4': '45-54', '5': '55-64', '6': '65+'
@@ -391,6 +425,9 @@ def combine_age_group_and_income_bracket():
 
 # Calculate likelihood for Age Group and Income Bracket
 def calculate_likelihood_age_group_and_income_bracket(age_group, income_bracket):
+    """
+    Searches for the likelihood of purchase based on the combination of age group and income bracket provided by the user.
+    """
     input_data_worksheet = SHEET.worksheet('Input data')
     analyzed_data = input_data_worksheet.get_all_records()
 
@@ -408,6 +445,10 @@ def calculate_likelihood_age_group_and_income_bracket(age_group, income_bracket)
 
 # Create Persona (combination of gender, age group, and income bracket)
 def create_persona():
+    """
+    Allows users to create a persona by specifying gender, age group, and income bracket, and then 
+    calculates the likelihood of purchase for that persona.
+    """
     print(Color.UNDERLINE + "\nChoose Gender:\n" + Color.END)
     gender_input = input("Enter the gender (M for Male, F for Female): ").strip().upper()
     print()
@@ -471,6 +512,9 @@ def create_persona():
 
 # Calculate likelihood for Gender and Income Bracket
 def calculate_likelihood_gender_and_income_bracket(gender, income_bracket):
+    """
+    Calculates the likelihood of purchase based on the combination of gender and income bracket.
+    """
     input_data_worksheet = SHEET.worksheet('Input data')
     analyzed_data = input_data_worksheet.get_all_records()
 
@@ -489,6 +533,9 @@ def calculate_likelihood_gender_and_income_bracket(gender, income_bracket):
 
 # Calculate likelihood for Gender and Age Group
 def calculate_likelihood_gender_and_age_group(gender, age_group):
+    """
+    Calculates the likelihood of purchase based on the combination of gender and age group.
+    """
     input_data_worksheet = SHEET.worksheet('Input data')
     analyzed_data = input_data_worksheet.get_all_records()
 
@@ -507,6 +554,9 @@ def calculate_likelihood_gender_and_age_group(gender, age_group):
 
 # Calculate likelihood for Age Group and Income Bracket
 def calculate_likelihood_age_group_and_income_bracket(age_group, income_bracket):
+    """
+    Calculates the likelihood of purchase based on the combination of age group and income bracket.
+    """
     input_data_worksheet = SHEET.worksheet('Input data')
     analyzed_data = input_data_worksheet.get_all_records()
 
@@ -525,6 +575,9 @@ def calculate_likelihood_age_group_and_income_bracket(age_group, income_bracket)
 
 # Store search result
 def store_search_result(persona, likelihood_percentage):
+    """
+    Stores the search results of a persona along with its likelihood of purchase.
+    """
     sheet = GSPREAD_CLIENT.open('ProductSurvey')
     stored_search_worksheet = sheet.worksheet('Stored last search')
     stored_search_worksheet.append_row([persona['Gender'], persona['Age Group'], persona['Income Bracket'], likelihood_percentage])
@@ -532,6 +585,9 @@ def store_search_result(persona, likelihood_percentage):
 
 # Calculate likelihood in percentage
 def calculate_likelihood_gender(search_criteria):
+    """
+    Calculates the likelihood of purchase based on gender criteria.
+    """
     input_data_worksheet = SHEET.worksheet('Input data')
     analyzed_data = input_data_worksheet.get_all_records()
 
@@ -562,6 +618,9 @@ def calculate_likelihood_gender(search_criteria):
 
 # Calculate age group
 def calculate_likelihood_age_group(age_group):
+    """
+    Calculates the likelihood of purchase based on the selected age group.
+    """
     input_data_worksheet = SHEET.worksheet('Input data')
     analyzed_data = input_data_worksheet.get_all_records()
 
@@ -578,6 +637,9 @@ def calculate_likelihood_age_group(age_group):
 
 # Calculate income bracket
 def calculate_likelihood_income_bracket(income_bracket):
+    """
+    Calculates the likelihood of purchase based on the selected income bracket.
+    """
     input_data_worksheet = SHEET.worksheet('Input data')
     analyzed_data = input_data_worksheet.get_all_records()
 
@@ -594,6 +656,9 @@ def calculate_likelihood_income_bracket(income_bracket):
 
 # Calculate Persona
 def calculate_likelihood_persona(persona):
+    """
+    Calculates the likelihood of purchase for a specified persona based on gender, age group, and income bracket.
+    """
     input_data_worksheet = SHEET.worksheet('Input data')
     analyzed_data = input_data_worksheet.get_all_records()
     
@@ -614,6 +679,9 @@ def calculate_likelihood_persona(persona):
 
 # View stored data menu
 def view_stored_data():
+    """
+    Provides a menu for viewing stored search data, including options to view the last search persona or all stored search personas.
+    """
     clear_screen()
     print("\nView Stored Data:")
     print()
@@ -637,6 +705,9 @@ def view_stored_data():
 
 # View last persona
 def view_last_search_persona():
+    """
+    Displays the details of the last searched persona.
+    """
     sheet = GSPREAD_CLIENT.open('ProductSurvey')
     stored_search_worksheet = sheet.worksheet('Stored last search')
     all_stored_search_personas = stored_search_worksheet.get_all_records()
@@ -655,6 +726,9 @@ def view_last_search_persona():
 
 # View all personas
 def view_all_stored_search_personas():
+    """
+    Displays details of all stored search personas.
+    """
     sheet = GSPREAD_CLIENT.open('ProductSurvey')
     stored_search_worksheet = sheet.worksheet('Stored last search')
     all_stored_search_personas = stored_search_worksheet.get_all_records()
@@ -672,29 +746,44 @@ def view_all_stored_search_personas():
 
 # Return to main menu by pressing enter
 def press_enter_to_main_menu():
+    """
+    Helper functions to prompt the user to press Enter to return to the main menu.
+    """
     input("Press Enter to return to the main menu...")
     main()
 
 
 # Return to extract menu by pressing enter
 def press_enter_to_extract_data_menu():
+    """
+    Helper functions to prompt the user to press Enter to return to the extract data menu.
+    """
     input("Press Enter to return to the extract data menu...")
     extract_analyzed_data()
 
 
 # Return to stored menu by pressing enter
 def press_enter_to_stored_data_menu():
+    """
+    Helper functions to prompt the user to press Enter to return to the stored data menu.
+    """
     input("Press Enter to return to the stored data menu...")
     view_stored_data()
 
 
 # clear screen
 def clear_screen():
+    """
+    Clears the terminal to give the user a fresh start
+    """
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
 #Main function
 def main():
+    """
+    Main functions.
+    """
     while True:
         clear_screen()
         welcome_message()

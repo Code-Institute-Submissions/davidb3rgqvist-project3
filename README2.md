@@ -1,6 +1,6 @@
-# WordStream
+# Apple Vision Pro Product Survey
 
-WordStream: French Edition is an engaging language learning game designed to help you master essential French vocabulary effortlessly. Immerse yourself in the game, learn the top 1000 words, and watch your language skills flow with ease.
+The Apple Vision Pro Product Survey is a Python application designed to gather insights into the likelihood of purchasing the Apple Vision Pro product. It allows users to input demographic data such as gender, age group, income bracket, and likelihood of purchase on a 0-10 scale. The application then analyzes this data and provides various options to extract and view analyzed results based on different criteria.
 
 - [Deployed page](https://davidb3rgqvist.github.io/project2/)
 

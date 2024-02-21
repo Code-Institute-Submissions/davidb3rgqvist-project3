@@ -37,7 +37,7 @@ https://www.asciiart.eu/image-to-ascii
 WordStream: French Edition is an engaging language learning game designed to help you master essential French vocabulary effortlessly. Immerse yourself in the game, learn the top 1000 words, and watch your language skills flow with ease.
 
 ## Deployed page
-The deployed WordStream website can be accessed using the following URL: [WordStream Deployment](https://davidb3rgqvist.github.io/project2/)
+The deployed Apple Vision Pro Product Survey app can be accessed using the following URL: [Apple Vision Pro Product Survey](https://apple-vision-pro-survey-46239bd7970b.herokuapp.com/)
 
 ## Responsive Test
 For a quick overview of responsiveness, we utilized [Am I Responsive](https://ui.dev/amiresponsive).
@@ -59,6 +59,7 @@ User Goals:
 Learn Core Vocabulary: Users aim to master the 1000 most common French words to kickstart their ability to speak the language.
 Effective Learning: Users seek an efficient and effective learning experience, acquiring words gradually through practice.
 Interactive Learning: Users are looking for an interactive and engaging method to enhance their language skills.
+
 Owner Goals:
 User Retention: The primary goal is to keep users engaged and motivated to continue their language learning journey.
 Educational Impact: The owner aims to contribute positively to users' language acquisition.
@@ -136,8 +137,31 @@ Security Measures: Fortify the platform with robust security measures. Safeguard
 
 By embracing these strategic steps, our vision for WordStream Learning is not just a website but a dynamic hub for language learning. This roadmap emphasizes user-centric design, feature richness, accessibility, continuous improvement, community engagement, and robust security. As we embark on this journey, we remain committed to delivering a learning experience that goes beyond expectations.
 
-Deployment
-Deployed page The deployment process involved leveraging GitHub Pages, an integrated service provided by GitHub, to publish the website directly from the project's repository. Here are the steps for deployment:
+## Deployment
+
+Apple Vision Pro Product Survey can be deployed to Heroku, a platform designed to host dynamic web applications. Follow these steps to deploy the application:
+
+1. **Create a Heroku Account:** If you haven't already, sign up for a Heroku account [here](https://www.heroku.com/).
+
+2. **Set Up Your Heroku App:** From the Heroku dashboard, click on the "Create new app" button. Choose a unique name for your app (e.g., "apple-vision-pro-survey"), select your region, and create the app.
+
+3. **Configure Environment Variables:** Navigate to the settings tab of your Heroku app dashboard. Under the "Config Vars" section, add any necessary environment variables required for your application. Ensure sensitive data such as API keys or database credentials are securely stored as environment variables.
+
+4. **Add Buildpacks:** In the settings tab, locate the "Buildpacks" section. Add the Python buildpack first, followed by the Node.js buildpack. Ensure that the Python buildpack is listed above the Node.js buildpack.
+
+5. **Deploy from GitHub:** In the deploy tab of your Heroku app dashboard, select GitHub as your deployment method. Connect your Heroku app to your GitHub repository containing the "Apple Vision Pro Product Survey" codebase. Choose the branch you want to deploy.
+
+6. **Manual or Automatic Deployment:** Choose between manual or automatic deployment. For manual deployment, trigger the deployment by selecting the branch and clicking the "Deploy Branch" button. For automatic deployment, enable automatic deploys so that Heroku rebuilds your app every time you push changes to your GitHub repository.
+
+7. **Monitor Deployment:** During deployment, you can monitor the progress through the deployment logs. Once the deployment is successful, Heroku will provide a link to access your deployed application.
+
+8. **Access Your Deployed Site:** You can access your deployed "Apple Vision Pro Product Survey" application using the provided Heroku app URL. Share this URL with users to access your survey.
+
+9. **Further Configuration:** Depending on your application's requirements, you may need to configure additional settings such as scaling dynos, setting up a custom domain, or adding add-ons for additional functionality.
+
+10. **Enjoy Your Deployed Application:** Congratulations! Your "Apple Vision Pro Product Survey" application is now deployed and accessible on the web. Users can start filling out the survey and providing valuable feedback.
+
+For more detailed information on deploying Python applications to Heroku, refer to the official Heroku documentation.
 
 GitHub Repository: The Free Gym Locator's codebase resides in a GitHub repository. - Repository
 

@@ -115,11 +115,11 @@ def insert_data():
     print(Color.UNDERLINE + "Choose Gender:\n" + Color.END)
 
     gender_choices = {'M': 'Male', 'F': 'Female'}
-    gender_input = input( "Enter the gender (M for Male, F for Female: ").strip().upper()
-    print()
+    gender_input = input( "Enter the gender (M for Male, F for Female: \n").strip().upper()
+    
     while gender_input not in gender_choices:
         print(Color.RED + "Invalid choice. Please choose either 'M' or 'F'.\n" + Color.END)
-        gender_input = input("Gender (M/F): ").strip().upper()
+        gender_input = input("Gender (M/F): \n").strip().upper()
     gender = gender_choices[gender_input]
 
     age_group_choices = {
@@ -129,12 +129,12 @@ def insert_data():
     print(Color.UNDERLINE + "\nChoose Age Group:\n" + Color.END)
     for key, value in age_group_choices.items():
         print(f"{key}: {value}")
-    age_group_input = input("\nEnter the number corresponding to the age group: ").strip()
-    print()
+    age_group_input = input("\nEnter the number corresponding to the age group: \n").strip()
+    
     while age_group_input not in age_group_choices:
         print(Color.RED + "Invalid choice. Please choose a number between 1 and 6." + Color.END)
-        age_group_input = input("\nEnter the number corresponding to the age group: ").strip()
-        print()
+        age_group_input = input("\nEnter the number corresponding to the age group: \n").strip()
+        
     age_group = age_group_choices[age_group_input]
 
     income_bracket_choices = {
@@ -144,20 +144,20 @@ def insert_data():
     print(Color.UNDERLINE + "\nChoose Income Bracket:\n" + Color.END)
     for key, value in income_bracket_choices.items():
         print(f"{key}: {value}")
-    income_bracket_input = input("\nEnter the number corresponding to the income bracket: ").strip()
-    print()
+    income_bracket_input = input("\nEnter the number corresponding to the income bracket: \n").strip()
+    
     while income_bracket_input not in income_bracket_choices:
         print(Color.RED + "Invalid choice. Please choose a number between 1 and 5.\n" + Color.END)
-        income_bracket_input = input("Enter the number corresponding to the income bracket: ").strip()
+        income_bracket_input = input("Enter the number corresponding to the income bracket: \n").strip()
     income_bracket = income_bracket_choices[income_bracket_input]
 
-    print(Color.UNDERLINE + "\nEnter the likelihood of purchasing (0-10 scale):\n" + Color.END)
-    likelihood_input = input("Enter a number between 0 and 10: ").strip()
-    print()
+    print(Color.UNDERLINE + "\nEnter the likelihood of purchasing a Apple Vision Pro 2024 (0-10 scale):\n" + Color.END)
+    likelihood_input = input("Enter a number between 0 and 10: \n").strip()
+    
     while not likelihood_input.isdigit() or int(likelihood_input) < 0 or int(likelihood_input) > 10:
         print(Color.RED + "Invalid input. Please enter a number between 0 and 10." + Color.END)
-        likelihood_input = input("\nEnter a number between 0 and 10: ").strip()
-        print()
+        likelihood_input = input("\nEnter a number between 0 and 10: \n").strip()
+        
     likelihood = int(likelihood_input)
 
     sheet = GSPREAD_CLIENT.open('ProductSurvey')
@@ -189,8 +189,8 @@ def extract_analyzed_data():
     print("7. Create Persona (combination of gender, age group, and income bracket)")
     print("8. Return to Main Menu\n")
 
-    choice = input("Enter your choice: ")
-    print() 
+    choice = input("Enter your choice: \n")
+    
 
     if choice == '1':
         # Search by Gender
@@ -225,7 +225,7 @@ def search_by_gender():
     Searches for the likelihood of purchase based on gender criteria provided by the user (Male or Female).
     """
     while True:
-        gender_input = input("Enter the gender (M for Male, F for Female): ").strip().upper()
+        gender_input = input("Enter the gender (M for Male, F for Female): \n").strip().upper()
         
         if gender_input == 'M':
             search_criteria = 'Male'
@@ -259,12 +259,11 @@ def search_by_age_group():
     print(Color.UNDERLINE + "\nChoose Age Group:\n" + Color.END)
     for key, value in age_group_choices.items():
         print(f"{key}: {value}")
-    age_group_input = input("\nEnter the number corresponding to the age group: ").strip()
-    print()
+    age_group_input = input("\nEnter the number corresponding to the age group: \n").strip()
     while age_group_input not in age_group_choices:
         print(Color.RED + "Invalid choice. Please choose a number between 1 and 6.\n" + Color.END)
-        age_group_input = input("Enter the number corresponding to the age group: ").strip()
-        print()
+        age_group_input = input("Enter the number corresponding to the age group: \n").strip()
+        
     age_group = age_group_choices[age_group_input]
     likelihood_age_group = calculate_likelihood_age_group(age_group)
     print(Color.GREEN + f"Likelihood of purchase for age group {age_group} is {likelihood_age_group:.2f}%\n" + Color.END)
@@ -283,8 +282,7 @@ def search_by_income_bracket():
     print(Color.UNDERLINE + "\nChoose Income Bracket:\n" + Color.END)
     for key, value in income_bracket_choices.items():
         print(f"{key}: {value}")
-    income_bracket_input = input("\nEnter the number corresponding to the income bracket: ").strip()
-    print()
+    income_bracket_input = input("\nEnter the number corresponding to the income bracket: \n").strip()
     while income_bracket_input not in income_bracket_choices:
         print(Color.RED + "Invalid choice. Please choose a number between 1 and 5.\n" + Color.END)
         income_bracket_input = input("Enter the number corresponding to the income bracket: ").strip()
@@ -303,7 +301,7 @@ def combine_gender_and_age_group():
     """
     gender = None
     while gender not in ['Male', 'Female']:
-        gender_input = input("Enter the gender (M for Male, F for Female): ").strip().upper()
+        gender_input = input("Enter the gender (M for Male, F for Female): \n").strip().upper()
         
         if gender_input == 'M':
             gender = 'Male'
@@ -319,12 +317,10 @@ def combine_gender_and_age_group():
     print(Color.UNDERLINE + "\nChoose Age Group:\n" + Color.END)
     for key, value in age_group_choices.items():
         print(f"{key}: {value}")
-    age_group_input = input("\nEnter the number corresponding to the age group: ").strip()
-    print()
+    age_group_input = input("\nEnter the number corresponding to the age group: \n").strip()
     while age_group_input not in age_group_choices:
         print(Color.RED + "Invalid choice. Please choose a number between 1 and 6.\n" + Color.END)
-        age_group_input = input("Enter the number corresponding to the age group: ").strip()
-        print()
+        age_group_input = input("Enter the number corresponding to the age group: \n").strip()
     age_group = age_group_choices[age_group_input]
 
     likelihood_percentage = calculate_likelihood_gender_and_age_group(gender, age_group)
@@ -344,7 +340,7 @@ def combine_gender_and_income_bracket():
     """
     gender = None
     while gender not in ['Male', 'Female']:
-        gender_input = input("Enter the gender (M for Male, F for Female): ").strip().upper()
+        gender_input = input("Enter the gender (M for Male, F for Female): \n").strip().upper()
         
         if gender_input == 'M':
             gender = 'Male'
@@ -360,12 +356,10 @@ def combine_gender_and_income_bracket():
     print(Color.UNDERLINE + "\nChoose Income Bracket:\n" + Color.END)
     for key, value in income_bracket_choices.items():
         print(f"{key}: {value}")
-    income_bracket_input = input("\nEnter the number corresponding to the income bracket: ").strip()
-    print()
+    income_bracket_input = input("\nEnter the number corresponding to the income bracket: \n").strip()
     while income_bracket_input not in income_bracket_choices:
         print(Color.RED + "Invalid choice. Please choose a number between 1 and 5.\n" + Color.END)
-        income_bracket_input = input("Enter the number corresponding to the income bracket: ").strip()
-        print()
+        income_bracket_input = input("Enter the number corresponding to the income bracket: \n").strip()
     income_bracket = income_bracket_choices[income_bracket_input]
 
     likelihood_percentage = calculate_likelihood_gender_and_income_bracket(gender, income_bracket)
@@ -390,12 +384,10 @@ def combine_age_group_and_income_bracket():
     print(Color.UNDERLINE + "\nChoose Age Group:\n" + Color.END)
     for key, value in age_group_choices.items():
         print(f"{key}: {value}")
-    age_group_input = input("\nEnter the number corresponding to the age group: ").strip()
-    print()
+    age_group_input = input("\nEnter the number corresponding to the age group: \n").strip()
     while age_group_input not in age_group_choices:
         print(Color.RED + "Invalid choice. Please choose a number between 1 and 6.\n" + Color.END)
-        age_group_input = input("Enter the number corresponding to the age group: ").strip()
-        print()
+        age_group_input = input("Enter the number corresponding to the age group: \n").strip()
     age_group = age_group_choices[age_group_input]
 
     income_bracket_choices = {
@@ -405,12 +397,10 @@ def combine_age_group_and_income_bracket():
     print(Color.UNDERLINE + "\nChoose Income Bracket:\n" + Color.END)
     for key, value in income_bracket_choices.items():
         print(f"{key}: {value}")
-    income_bracket_input = input("\nEnter the number corresponding to the income bracket: ").strip()
-    print()
+    income_bracket_input = input("\nEnter the number corresponding to the income bracket: \n").strip()
     while income_bracket_input not in income_bracket_choices:
         print(Color.RED + "Invalid choice. Please choose a number between 1 and 5.\n" + Color.END)
-        income_bracket_input = input("Enter the number corresponding to the income bracket: ").strip()
-        print()
+        income_bracket_input = input("Enter the number corresponding to the income bracket: \n").strip()
     income_bracket = income_bracket_choices[income_bracket_input]
 
     likelihood_percentage = calculate_likelihood_age_group_and_income_bracket(age_group, income_bracket)
@@ -423,26 +413,6 @@ def combine_age_group_and_income_bracket():
     press_enter_to_extract_data_menu()
 
 
-# Calculate likelihood for Age Group and Income Bracket
-def calculate_likelihood_age_group_and_income_bracket(age_group, income_bracket):
-    """
-    Searches for the likelihood of purchase based on the combination of age group and income bracket provided by the user.
-    """
-    input_data_worksheet = SHEET.worksheet('Input data')
-    analyzed_data = input_data_worksheet.get_all_records()
-
-    likelihood_values = [int(str(record.get('Likelihood', 0))) for record in analyzed_data if
-                         record.get('Age Group') == age_group and record.get('Income Bracket') == income_bracket and
-                         str(record.get('Likelihood', 0)).isdigit()]
-
-    if not likelihood_values:
-        return 0
-
-    mean_likelihood = statistics.mean(likelihood_values)
-    mean_likelihood_percent = (mean_likelihood / 10) * 100
-
-    return mean_likelihood_percent
-
 # Create Persona (combination of gender, age group, and income bracket)
 def create_persona():
     """
@@ -450,12 +420,11 @@ def create_persona():
     calculates the likelihood of purchase for that persona.
     """
     print(Color.UNDERLINE + "\nChoose Gender:\n" + Color.END)
-    gender_input = input("Enter the gender (M for Male, F for Female): ").strip().upper()
-    print()
+    gender_input = input("Enter the gender (M for Male, F for Female): \n").strip().upper()
     while gender_input not in ['M', 'F']:
         print(Color.RED + "Invalid choice. Please choose either 'M' or 'F'." + Color.END)
         print()
-        gender_input = input("Enter the gender (M for Male, F for Female): ").strip().upper()
+        gender_input = input("Enter the gender (M for Male, F for Female): \n").strip().upper()
     gender = 'Male' if gender_input == 'M' else 'Female' 
 
     age_group_choices = {
@@ -465,12 +434,10 @@ def create_persona():
     print(Color.UNDERLINE + "\nChoose Age Group:\n" + Color.END)
     for key, value in age_group_choices.items():
         print(f"{key}: {value}")
-    age_group_input = input("\nEnter the number corresponding to the age group: ").strip()
-    print()
+    age_group_input = input("\nEnter the number corresponding to the age group: \n").strip()
     while age_group_input not in age_group_choices:
         print(Color.RED + "Invalid choice. Please choose a number between 1 and 6." + Color.END)
-        age_group_input = input("\nEnter the number corresponding to the age group: ").strip()
-        print()
+        age_group_input = input("\nEnter the number corresponding to the age group: \n").strip()
     age_group = age_group_choices[age_group_input]
 
     income_bracket_choices = {
@@ -480,12 +447,10 @@ def create_persona():
     print(Color.UNDERLINE + "\nChoose Income Bracket:\n" + Color.END)
     for key, value in income_bracket_choices.items():
         print(f"{key}: {value}")
-    income_bracket_input = input("\nEnter the number corresponding to the income bracket: ").strip()
-    print()
+    income_bracket_input = input("\nEnter the number corresponding to the income bracket: \n").strip()
     while income_bracket_input not in income_bracket_choices:
         print(Color.RED + "Invalid choice. Please choose a number between 1 and 5." + Color.END)
-        income_bracket_input = input("\nEnter the number corresponding to the income bracket: ").strip()
-        print()
+        income_bracket_input = input("\nEnter the number corresponding to the income bracket: \n").strip()
     income_bracket = income_bracket_choices[income_bracket_input]
 
     persona = {'Gender': gender, 'Age Group': age_group, 'Income Bracket': income_bracket}
@@ -494,10 +459,10 @@ def create_persona():
         formatted_persona = ", ".join([f"{key}: {value}" for key, value in persona.items()])
         print(Color.GREEN + f"Likelihood of purchase for persona {formatted_persona} is {likelihood_percentage}\n" + Color.END)
         while True:
-            store_option = input("Do you want to store the search results? (Y/N): ").strip().lower()
+            store_option = input("Do you want to store the search results? (Y/N): \n").strip().lower()
             if store_option == 'y' or store_option == 'yes':
                 store_search_result(persona, likelihood_percentage)
-                print(Color.GREEN + "\nSearch results stored successfully.\n" + Color.END)
+                print(Color.GREEN + "Search results stored successfully.\n" + Color.END)
                 break
             elif store_option == 'n' or store_option == 'no':
                 print(Color.RED + "\nSearch results not stored.\n" + Color.END)
@@ -510,80 +475,7 @@ def create_persona():
     press_enter_to_extract_data_menu()
 
 
-# Calculate likelihood for Gender and Income Bracket
-def calculate_likelihood_gender_and_income_bracket(gender, income_bracket):
-    """
-    Calculates the likelihood of purchase based on the combination of gender and income bracket.
-    """
-    input_data_worksheet = SHEET.worksheet('Input data')
-    analyzed_data = input_data_worksheet.get_all_records()
-
-    likelihood_values = [int(str(record.get('Likelihood', 0))) for record in analyzed_data if
-                         record.get('Gender') == gender and record.get('Income Bracket') == income_bracket and
-                         str(record.get('Likelihood', 0)).isdigit()]
-
-    if not likelihood_values:
-        return 0
-
-    mean_likelihood = statistics.mean(likelihood_values)
-    mean_likelihood_percent = (mean_likelihood / 10) * 100
-
-    return mean_likelihood_percent
-
-
-# Calculate likelihood for Gender and Age Group
-def calculate_likelihood_gender_and_age_group(gender, age_group):
-    """
-    Calculates the likelihood of purchase based on the combination of gender and age group.
-    """
-    input_data_worksheet = SHEET.worksheet('Input data')
-    analyzed_data = input_data_worksheet.get_all_records()
-
-    likelihood_values = [int(str(record.get('Likelihood', 0))) for record in analyzed_data if
-                         record.get('Gender') == gender and record.get('Age Group') == age_group and
-                         str(record.get('Likelihood', 0)).isdigit()]
-
-    if not likelihood_values:
-        return 0
-
-    mean_likelihood = statistics.mean(likelihood_values)
-    mean_likelihood_percent = (mean_likelihood / 10) * 100
-
-    return mean_likelihood_percent
-
-
-# Calculate likelihood for Age Group and Income Bracket
-def calculate_likelihood_age_group_and_income_bracket(age_group, income_bracket):
-    """
-    Calculates the likelihood of purchase based on the combination of age group and income bracket.
-    """
-    input_data_worksheet = SHEET.worksheet('Input data')
-    analyzed_data = input_data_worksheet.get_all_records()
-
-    likelihood_values = [int(str(record.get('Likelihood', 0))) for record in analyzed_data if
-                         record.get('Age Group') == age_group and record.get('Income Bracket') == income_bracket and
-                         str(record.get('Likelihood', 0)).isdigit()]
-
-    if not likelihood_values:
-        return 0
-
-    mean_likelihood = statistics.mean(likelihood_values)
-    mean_likelihood_percent = (mean_likelihood / 10) * 100
-
-    return mean_likelihood_percent
-
-
-# Store search result
-def store_search_result(persona, likelihood_percentage):
-    """
-    Stores the search results of a persona along with its likelihood of purchase.
-    """
-    sheet = GSPREAD_CLIENT.open('ProductSurvey')
-    stored_search_worksheet = sheet.worksheet('Stored last search')
-    stored_search_worksheet.append_row([persona['Gender'], persona['Age Group'], persona['Income Bracket'], likelihood_percentage])
-
-
-# Calculate likelihood in percentage
+# Calculate likelihood gender
 def calculate_likelihood_gender(search_criteria):
     """
     Calculates the likelihood of purchase based on gender criteria.
@@ -614,7 +506,7 @@ def calculate_likelihood_gender(search_criteria):
         return female_likelihood_percentage
     else:
         return None
-
+    
 
 # Calculate age group
 def calculate_likelihood_age_group(age_group):
@@ -654,7 +546,70 @@ def calculate_likelihood_income_bracket(income_bracket):
     return mean_likelihood_percent
 
 
-# Calculate Persona
+# Calculate likelihood for Gender and Age Group
+def calculate_likelihood_gender_and_age_group(gender, age_group):
+    """
+    Calculates the likelihood of purchase based on the combination of gender and age group.
+    """
+    input_data_worksheet = SHEET.worksheet('Input data')
+    analyzed_data = input_data_worksheet.get_all_records()
+
+    likelihood_values = [int(str(record.get('Likelihood', 0))) for record in analyzed_data if
+                         record.get('Gender') == gender and record.get('Age Group') == age_group and
+                         str(record.get('Likelihood', 0)).isdigit()]
+
+    if not likelihood_values:
+        return 0
+
+    mean_likelihood = statistics.mean(likelihood_values)
+    mean_likelihood_percent = (mean_likelihood / 10) * 100
+
+    return mean_likelihood_percent
+
+
+# Calculate likelihood for Gender and Income Bracket
+def calculate_likelihood_gender_and_income_bracket(gender, income_bracket):
+    """
+    Calculates the likelihood of purchase based on the combination of gender and income bracket.
+    """
+    input_data_worksheet = SHEET.worksheet('Input data')
+    analyzed_data = input_data_worksheet.get_all_records()
+
+    likelihood_values = [int(str(record.get('Likelihood', 0))) for record in analyzed_data if
+                         record.get('Gender') == gender and record.get('Income Bracket') == income_bracket and
+                         str(record.get('Likelihood', 0)).isdigit()]
+
+    if not likelihood_values:
+        return 0
+
+    mean_likelihood = statistics.mean(likelihood_values)
+    mean_likelihood_percent = (mean_likelihood / 10) * 100
+
+    return mean_likelihood_percent
+
+
+# Calculate likelihood for Age Group and Income Bracket
+def calculate_likelihood_age_group_and_income_bracket(age_group, income_bracket):
+    """
+    Calculates the likelihood of purchase based on the combination of age group and income bracket.
+    """
+    input_data_worksheet = SHEET.worksheet('Input data')
+    analyzed_data = input_data_worksheet.get_all_records()
+
+    likelihood_values = [int(str(record.get('Likelihood', 0))) for record in analyzed_data if
+                         record.get('Age Group') == age_group and record.get('Income Bracket') == income_bracket and
+                         str(record.get('Likelihood', 0)).isdigit()]
+
+    if not likelihood_values:
+        return 0
+
+    mean_likelihood = statistics.mean(likelihood_values)
+    mean_likelihood_percent = (mean_likelihood / 10) * 100
+
+    return mean_likelihood_percent
+
+
+# Calculate likelihood persona
 def calculate_likelihood_persona(persona):
     """
     Calculates the likelihood of purchase for a specified persona based on gender, age group, and income bracket.
@@ -677,6 +632,16 @@ def calculate_likelihood_persona(persona):
     return likelihood_percentage
 
 
+# Store search result
+def store_search_result(persona, likelihood_percentage):
+    """
+    Stores the search results of a persona along with its likelihood of purchase.
+    """
+    sheet = GSPREAD_CLIENT.open('ProductSurvey')
+    stored_search_worksheet = sheet.worksheet('Stored last search')
+    stored_search_worksheet.append_row([persona['Gender'], persona['Age Group'], persona['Income Bracket'], likelihood_percentage])
+
+
 # View stored data menu
 def view_stored_data():
     """
@@ -690,8 +655,7 @@ def view_stored_data():
     print("2. View All Stored Search Personas")
     print("3. Return to Main Menu\n")
 
-    choice = input("Enter your choice: ")
-    print()
+    choice = input("Enter your choice: \n")
 
     if choice == '1':
         view_last_search_persona()
@@ -749,7 +713,7 @@ def press_enter_to_main_menu():
     """
     Helper functions to prompt the user to press Enter to return to the main menu.
     """
-    input("Press Enter to return to the main menu...")
+    input("Press Enter to return to the main menu...\n")
     main()
 
 
@@ -758,7 +722,7 @@ def press_enter_to_extract_data_menu():
     """
     Helper functions to prompt the user to press Enter to return to the extract data menu.
     """
-    input("Press Enter to return to the extract data menu...")
+    input("Press Enter to return to the extract data menu...\n")
     extract_analyzed_data()
 
 
@@ -767,7 +731,7 @@ def press_enter_to_stored_data_menu():
     """
     Helper functions to prompt the user to press Enter to return to the stored data menu.
     """
-    input("Press Enter to return to the stored data menu...")
+    input("Press Enter to return to the stored data menu...\n")
     view_stored_data()
 
 
@@ -787,8 +751,7 @@ def main():
     while True:
         clear_screen()
         welcome_message()
-        choice = input("Enter your choice: ")
-        print()
+        choice = input("Enter your choice: \n")
 
         if choice == '1':
             insert_data()
@@ -798,7 +761,6 @@ def main():
             view_stored_data() 
         elif choice == '4':
             print("Exiting the program...")
-            print()
             break
         else:
             print(Color.RED + "Invalid choice. Please try again." + Color.END)

@@ -20,64 +20,199 @@ The Apple Vision Pro Product Survey is a Python application designed to gather i
 
 ### Strategy:
 
-WordStream is a language learning game designed to help users master the 1000 most common French words for effective language acquisition. The game focuses on providing an interactive and engaging learning experience, aiming to kickstart users' ability to speak French.
+The app implements a survey system for gathering insights into the likelihood of purchasing a product, specifically the Apple Vision Pro. The app utilizes Google Sheets for data storage and analysis. 
+
+- **Clarity in Purpose:** We've made sure that users understand exactly what our survey is about. The introduction is brief but informative, so everyone knows what to expect.
+
+- **Intuitive Interaction:** We've kept things simple. Clear instructions, descriptive prompts, and straightforward options make the whole process a breeze.
+
+- **Error Handling and Validation:** Nobody likes running into errors. That's why we've put in place robust mechanisms to handle mistakes and guide users with helpful messages.
+
+- **Feedback and Confirmation:** It's always nice to know when you've done something right. We provide immediate feedback and use visual cues to confirm successful actions.
+
+- **Navigation:** Getting around should be easy. We've designed the system to be intuitive.
+
+- **Consistency and Visual Design:** We believe in keeping things consistent. From colors to layout, everything is designed with usability in mind.
 
 #### User Goals:
 
-- **Learn Core Vocabulary:** Users aim to master the 1000 most common French words to kickstart their ability to speak the language.
-- **Effective Learning:** Users seek an efficient and effective learning experience, acquiring words gradually through practice.
-- **Interactive Learning:** Users are looking for an interactive and engaging method to enhance their language skills.
+- **Providing Input Data::** Users aim to input their demographic information, such as gender, age group, income bracket, and likelihood of purchasing the Apple Vision Pro product. The goal is to contribute their data for analysis.
+- **Extracting Analyzed Data:** Users want to extract analyzed data based on various criteria such as gender, age group, income bracket, or combinations thereof. The goal is to obtain insights into the likelihood of purchase for different demographic segments.
+- **Viewing Stored Data:** Users may want to view previously stored data, including the details of the last search persona or all stored search personas. The goal is to review past searches and their results for reference or further analysis.
+- **Creating Personas:** Users may be interested in creating personas by specifying gender, age group, and income bracket to calculate the likelihood of purchase for those personas. The goal is to understand the purchasing behavior of specific demographic profiles.
+- **Storing Search Results:** Users may want to store the results of their searches for future reference or analysis. The goal is to retain important insights gained from analyzing demographic data.
+- **Navigating the Application:** Users aim to navigate the application smoothly, accessing different features and menus effortlessly. The goal is to have a user-friendly experience while interacting with the survey application.
+- **Exiting the Program:** Users may need to exit the program after completing their tasks or when they no longer need to use the application. The goal is to gracefully terminate the application session.
 
 #### Owner Goals:
 
-- **User Retention:** The primary goal is to keep users engaged and motivated to continue their language learning journey.
-- **Educational Impact:** The owner aims to contribute positively to users' language acquisition.
-- **User Satisfaction:** Ensuring that users find the game enjoyable and beneficial for language learning
+- **Collecting Data:** The owner aims to collect valuable demographic data from users regarding their likelihood of purchasing the Apple Vision Pro product. The goal is to gather insights into potential customer segments.
+- **Analyzing Data:** The owner intends to analyze the collected data to identify patterns, trends, and preferences among different demographic groups. The goal is to understand the target market better and refine marketing strategies accordingly.
+- **Generating Insights:** The owner seeks to generate actionable insights from the analyzed data to inform product development, marketing campaigns, and overall business strategy. The goal is to make data-driven decisions that maximize the product's success in the market.
+- **Improving Product Offering:** Based on the insights gained from the survey data, the owner aims to make improvements to the Apple Vision Pro product to better align with customer preferences and needs. The goal is to enhance the product's appeal and competitiveness in the market.
+- **Enhancing User Experience:** The owner strives to enhance the user experience of the survey application, ensuring it is intuitive, easy to use, and engaging for participants. The goal is to encourage more users to provide data and maximize participation rates.
+- **Driving Product Adoption:** Ultimately, the owner aims to drive product adoption and increase sales of the Apple Vision Pro product by leveraging insights from the survey data to target marketing efforts effectively and address customer needs. The goal is to achieve commercial success and maximize revenue potential.
 
 ### Scope:
 
-- **Learning Mechanism:** The primary function is to present users with French-English word pairs for learning.
-- **Feedback System:** Provide instant feedback on correct and incorrect answers, reinforcing learning.
-- **Replayability:** Allow users to play the game repeatedly to reinforce vocabulary and improve retention.
-- **Shuffling Words:** Implement a mechanism to shuffle words on page reload, providing a fresh learning experience.
+- **Survey Design and Development:** Designing the survey questionnaire to gather relevant information about users' likelihood of purchasing the Apple Vision Pro product. Developing the survey application with user-friendly interfaces for seamless participation.
+
+- **Data Collection and Storage:** Collecting demographic data and user responses through the survey application. Storing survey data securely in a cloud storage system, adhering to data protection regulations.
+
+- **Data Analysis and Insights Generation:** Analyzing survey data to identify trends, patterns, and insights regarding potential customer segments. Generating actionable insights to inform marketing strategies, product development decisions, and business planning.
+
+- **Reporting and Visualization:** Data can be used to create reports and visualizations to present survey findings in a clear and understandable format. Incorporating charts, graphs, and dashboards to facilitate data interpretation and decision-making.
+
+- **User Experience (UX) Design:**
+
+Ensuring a smooth and intuitive user experience throughout the survey application.
+Designing interfaces that are responsive, accessible, and visually appealing to encourage user engagement.
+
+- **Security and Compliance:**
+
+Implementing robust security measures to protect user data from unauthorized access, data breaches, or cyber threats.
+Ensuring compliance with relevant data protection regulations, such as GDPR or CCPA, to safeguard user privacy.
+
+- **Scalability and Performance:**
+
+Designing the survey application to handle a large number of users and survey responses efficiently.
+Optimizing performance to minimize latency and ensure responsiveness during peak usage periods.
+
+- **Integration and Compatibility:**
+
+Integrating the survey application with other systems or platforms, such as customer relationship management (CRM) software or analytics tools.
+Ensuring compatibility with various devices and web browsers to reach a broad audience of users.
+
+- **Maintenance and Support:**
+
+Providing ongoing maintenance and technical support to address any issues, bugs, or user inquiries related to the survey application.
+Updating the application regularly to add new features, improve functionality, and address emerging needs or requirements.
 
 ![Screen shots of the pages with comments](docs/comments.png)
 
 ### Structure:
 
-- **Flashcard Interface:** Use a flashcard format to present words, focusing on one word at a time for effective learning.
-- **User Input:** Incorporate a text input for users to type their answers.
-- **Feedback Display:** Display a visual cue (e.g., green flash) for correct answers and provide the correct word on mistakes.
-- **Audio Feedback:** Include the option for users to listen to the correct pronunciation.
+- **Main Application Interface:**
 
+Terminal Interface: The primary interface for users to interact with the survey. It should provide clear instructions, display survey questions, and receive user input through text-based prompts.
+Menu System: A menu-driven system to navigate through different survey sections, view instructions, and submit responses.
+Text Formatting: Utilize text formatting techniques (e.g., colors, styles) to enhance readability and provide visual cues.
+
+- **Backend System:**
+
+Survey Logic: Modules to manage survey flow, including branching logic based on user responses and validation of input.
+Data Management: Functions to store survey responses temporarily in memory or persistently in files or databases.
+Error Handling: Mechanisms to handle errors gracefully, provide helpful error messages, and guide users through troubleshooting steps.
+
+- **Security Measures: Implement security best practices to protect sensitive data and prevent unauthorized access.**
+
+Packaging: Tools to package the application for easy distribution and installation on different operating systems.
+Dependency Management: Utilize dependency management tools (e.g., pip for Python) to manage external libraries and ensure consistent behavior across environments.
+Version Control: Use version control systems like Git to track changes.
+
+- **Documentation and Support:**
+
+User Manual: Detailed instructions on how to use the terminal-based survey application, including navigating menus, entering responses, and troubleshooting common issues.
+Developer Documentation: Technical documentation for developers contributing to the project, covering code structure, module dependencies, and contribution guidelines.
+Community Support: Establish channels for users and developers to seek help, provide feedback, and engage with the project community (e.g., online forums, issue trackers).
 
 ### Skeleton:
-- **Start Button:** Initiate the game with a "Start Game" button.
-- **User Input Field:** Allow users to type their answers.
-- **Submit Button:** Trigger the evaluation of user input.
-- **Correct/Wrong Display:** Visually indicate correct and incorrect answers.
-- **Play Again Button:** Provide an option to restart the game.
-- **Exit to Scoreboard Button:** Allow users to view their high scores.
+
+- **Import Statements:**
+
+Import necessary modules such as gspread and google.oauth2.service_account.
+Define a class Color for text color formatting.
+
+- **Constants:**
+
+Define SCOPE for the Google Sheets API access scope.
+Load credentials from a JSON file (creds.json in this case).
+
+- **Authentication and Setup:**
+
+Authenticate using the credentials and set up the Google Sheets client.
+
+- **Welcome Message Function:**
+
+Define a function welcome_message() to display the welcome message and menu options.
+
+- **Input Data Functionality:**
+
+Implement insert_data() function to prompt the user to input survey data and append it to the Google Sheet.
+
+- **Extract Analyzed Data Functionality:**
+
+Implement functions for extracting analyzed data based on various criteria:
+extract_analyzed_data(), search_by_gender(), search_by_age_group(), search_by_income_bracket(), etc.
+Each function handles different search criteria and combinations.
+
+- **View Stored Data Functionality:**
+
+Implement view_stored_data() function to provide options for viewing stored search data.
+
+- **Helper Functions:**
+
+Implement helper functions such as press_enter_to_main_menu(), press_enter_to_extract_data_menu(), and clear_screen() to improve user experience and maintain code clarity.
+
+- **Main Function:**
+
+Implement the main() function to control the flow of the program, which repeatedly displays the main menu and processes user input until the user chooses to exit.
+
+- **onditional Execution:**
+
+The if __name__ == "__main__": block ensures that the main() function is executed when the script is run directly.
 
 ![Wireframe link](docs/wireframe.png)
 
 ### Surface:
-- **Visual Design:** Use a visually appealing and intuitive design to enhance the overall user experience.
-- **Color Scheme:** Employ a color scheme that is both engaging and comfortable for extended usage.
-- **Responsive Design:** Ensure the game is accessible and functional across various devices.
-- **Audio Feedback:** Incorporate audio elements for the correct word and word pronunciation.
-- **Clear Typography:** Use clear and readable fonts for an optimal reading experience.
+
+- **User Interface:**
+
+The program runs in a terminal or command prompt environment.
+Upon execution, the user is greeted with a welcome message, some ascii art and a menu of options.
+
+The menu typically includes options such as:
+- Input survey data
+- Extract analyzed data
+- View stored data
+- Exit program
+The interface should be intuitive and provide clear instructions for the user to navigate through the options.
+
+- **Input Survey Data:**
+
+Users can input survey data, which typically includes information such as gender, age, income, and responses to survey questions.
+The program prompts the user to enter the required information one by one, validating input where necessary.
+Once the data is entered, it is appended to the Google Sheets document for storage and analysis.
+
+- **Extract Analyzed Data:**
+
+Users can extract analyzed data based on different criteria, such as gender, age group, or income bracket.
+The program provides options for the user to select the desired criteria and retrieves the corresponding data from the Google Sheets document.
+Analyzed data may include statistics, summaries, or filtered subsets of the original survey data.
+
+- **View Stored Data:**
+
+Users can view stored survey data, which may include both raw input data and analyzed data.
+The program presents the data in a readable format, possibly using tabular or structured layouts.
+Users may have the option to scroll through the data or view specific sections based on their preferences.
+
+- **Exit Program:**
+
+Users have the option to exit the program at any time.
+Choosing this option terminates the program and returns the user to the command prompt or terminal environment.
 
 ![Visual ID](docs/wordstream-vi.png)
 
 ## Future Features
 
-We plan to enhance the website with the following features:
+In our pipeline are the following exciting features set to elevate your experience:
 
-- More languages.
-- Filter option to be able the practice the words the the user  finds harder.
-- Top ten user highscore.
-- 3d effect when flipping the flashcards.
+- Create a front-end landing page, for better UX
+- Expansion to include updates for other products.
+- More demographic options to input
+- Enriched research capabilities with a wider array of questions.
+- Generate report cards with visualized analysis, including charts for better comprehension.
+- Seamless integration allowing users to effortlessly send search results via email.
 
 ## Technology Used
 
@@ -85,8 +220,6 @@ We plan to enhance the website with the following features:
 - Figma for wireframes
 - ChatGPT - for AI assistance
 - www.w3.org: Utilized to perform validation test of HTML and CSS.
-- https://jshint.com/: Utilized to perform validation test of JavaScript.
-- https://ui.dev/amiresponsive: Utilized for a quick overview of the responsivness.
 - https://www.asciiart.eu/image-to-ascii: Generating ASCII art image
 
 ## Testing

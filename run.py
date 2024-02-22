@@ -87,10 +87,8 @@ def welcome_message():
  
 """)
     print()
-    print(Color.CYAN + """
-          This survey aims to gather insights into the
-           likelihood of purchasing the Apple Vision Pro product.
-          """ + Color.END)
+    print(Color.CYAN + """This survey aims to gather insights into the likelihood 
+of purchasing the Apple Vision Pro product.""" + Color.END)
     print()
     print("1. Insert Data")
     print("2. Extract Analyzed Data")

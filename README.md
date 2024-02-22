@@ -201,7 +201,7 @@ Users may have the option to scroll through the data or view specific sections b
 Users have the option to exit the program at any time.
 Choosing this option terminates the program and returns the user to the command prompt or terminal environment.
 
-![Visual ID](docs/wordstream-vi.png)
+![Visual ID](docs/product-survey-vi.png)
 
 ## Future Features
 
@@ -219,7 +219,7 @@ In our pipeline are the following exciting features set to elevate your experien
 - Back-end: Python
 - Figma for wireframes
 - ChatGPT - for AI assistance
-- www.w3.org: Utilized to perform validation test of HTML and CSS.
+- https://pep8ci.herokuapp.com/: Utilized to perform test of Python code.
 - https://www.asciiart.eu/image-to-ascii: Generating ASCII art image
 
 ## Testing
@@ -229,7 +229,7 @@ XXXXXX
 - [HTML Validation of index.html, no errors found](docs/index-validation.png)
 - [CSS Validation of style.css, no errors found](docs/css-validation.png)
 - [JavaScript Validation, no errors found](docs/javascript-validation.png)
-- [Lighthouse report](docs/lighthouse-report.png)
+- [Linter test](docs/ci-python-linter-test.png)
 - [Responsiveness overview](docs/responsive-test.png)
 
 ## Development
@@ -280,7 +280,7 @@ XXX
 
 ### Open-Source Libraries
 
-- **Code Institute:** Primary educational content encompassing comprehensive videos elucidating Python. Mainly from the "Love Sandwiches Walktrough Project". 
+- **Code Institute:** Primary educational content encompassing comprehensive videos elucidating Python. Mainly from the "Love Sandwiches Walktrough Project". https://github.com/Code-Institute-Solutions/love-sandwiches-p5-sourcecode/tree/master/01-getting-set-up/02-connecting-oto-our-api-with-python
 
 ### External Resources
 

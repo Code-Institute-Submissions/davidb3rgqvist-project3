@@ -22,7 +22,7 @@ SCOPE = [
     "https://www.googleapis.com/auth/drive.file",
     "https://www.googleapis.com/auth/drive"
 ]
-
+# Code from the Love Sandwiches Walkthrough Project: https://github.com/Code-Institute-Solutions/love-sandwiches-p5-sourcecode/tree/master/01-getting-set-up/02-connecting-oto-our-api-with-python
 CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
@@ -85,8 +85,8 @@ def welcome_message():
 
 """)
     print()
-    print(Color.CYAN + f"This survey aims to gather insights into the{{}} "
-          f"likelihood of purchasing the Apple Vision Pro.{{}}" +
+    print(Color.CYAN + f"This survey aims to gather insights into the "
+          f"likelihood of purchasing the Apple Vision Pro." +
           Color.END)
     print()
     print("1. Insert Data")
@@ -938,7 +938,7 @@ def main():
         elif choice == '3':
             view_stored_data()
         elif choice == '4':
-            print("Exiting the program...")
+            print("Exiting the program...\n")
             break
         else:
             print(Color.RED + "Invalid choice...\n" + Color.END)

@@ -135,12 +135,12 @@ Choosing this option terminates the program and returns the user to the command 
 
 We are thrilled to introduce a series of enhancements designed to elevate the user experience:
 
-- **Front-end Landing Page Creation:** Enhance user experience with a captivating front-end landing page.
-- **Expanded Product Updates:** Extend our reach by including updates for other products, providing a comprehensive platform for information dissemination.
-- **Diverse Demographic Input Options:** Offer a broader range of demographic options to provide a more inclusive and tailored experience.
-- **Enhanced Research Capabilities:** Enrich your research endeavors with an expanded array of questions, empowering deeper exploration and analysis.
-- **Visualized Analysis:** Generate insightful report cards featuring visualized analysis, including charts for enhanced comprehension and decision-making.
-- **Seamless Integration:** Facilitate effortless communication by enabling users to seamlessly send search results via email, promoting efficient collaboration and sharing.
+- **Front-end Landing Page Creation:** Elevate user engagement with an immersive front-end landing page, meticulously designed to leave a lasting impression and effortlessly guide visitors through their journey.
+- **Expanded Product Updates:** Broaden our outreach and deepen user engagement by curating comprehensive updates across our entire product portfolio, fostering a dynamic platform for seamless information dissemination and fostering a sense of community.
+- **Diverse Demographic Input Options:** Cultivate inclusivity and empower users with a diverse array of demographic input options, ensuring every individual feels represented and valued, thus fostering a truly personalized and enriching experience.
+- **Enhanced Research Capabilities:** Propel your research endeavors to new heights with an expansive repertoire of thoughtfully crafted questions, unlocking unparalleled insights and empowering in-depth exploration and analysis, thus enabling informed decision-making and strategic planning.
+- **Visualized Analysis:** Illuminate your data with visually stunning report cards that transcend traditional analysis, harnessing the power of immersive charts and graphics to facilitate deeper comprehension, spark meaningful insights, and guide decisive actions.
+- **Seamless Integration:** Foster seamless collaboration and communication by seamlessly integrating email functionality, empowering users to effortlessly share search results with colleagues and stakeholders, catalyzing efficient workflows and driving collective success.
 
 ## Technology Used
 
@@ -158,9 +158,9 @@ Testing is an indispensable aspect of software development, ensuring that code f
 - **Responsiveness Overview:** In today's multi-device landscape, ensuring a seamless user experience across different screen sizes and devices is paramount. Responsiveness testing evaluates how a web application or site adapts to various viewport dimensions, including desktops, tablets, and smartphones. The Responsiveness Overview image offers a visual representation of how the interface behaves across different screen sizes, highlighting areas that may require optimization for improved usability and accessibility.
 - **Method for Manual Test:** While automated testing tools offer efficiency and scalability, manual testing remains essential for validating user interactions, visual elements, and edge cases that may not be easily captured through automation. The Method for Manual Test image likely illustrates a structured approach or checklist for conducting manual tests, guiding testers through scenarios to verify functionality, usability, and user interface elements.
 
-- [Linter test](docs/ci-python-linter-test.png)
-- [Responsiveness overview](docs/responsive-test.png)
-- [Method for manual test](docs/manual-test.png)
+![Linter test](docs/ci-python-linter-test.png)
+![Responsiveness overview](docs/responsive-test.png)
+![Method for manual test](docs/manual-test.png)
 
 ## Development
 

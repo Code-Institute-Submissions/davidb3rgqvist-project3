@@ -199,8 +199,9 @@ In summary, deploying applications using Heroku and GitHub integration offers a 
 
 ### Accessing the Deployed Site
 
-The deployed application can be accessed using the following URL: https://apple-vision-pro-survey-46239bd7970b.herokuapp.com/
-The spreadsheet with stored data can be accessed using the following URL: https://docs.google.com/spreadsheets/d/1smBjfvvnpdDnmvxKwiwAl2V6hCMFwyGIR9vtk1-deY0/edit?usp=sharing
+- The deployed application can be accessed using the following URL: https://apple-vision-pro-survey-46239bd7970b.herokuapp.com/
+
+- The spreadsheet with stored data can be accessed using the following URL: https://docs.google.com/spreadsheets/d/1smBjfvvnpdDnmvxKwiwAl2V6hCMFwyGIR9vtk1-deY0/edit?usp=sharing
 
 ## Credits
 
